@@ -19,5 +19,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Artisan::command('s', function () {
-    $this->call('serve', ['--port' => '7007']);
+    $this->call('octane:start', ['--port' => '7007']);
 });
