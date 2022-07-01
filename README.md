@@ -3,7 +3,7 @@
 ### Run in server
 ```shell
 HOST=l80.ru
-docker pull $HOST
+docker pull breakhack/l80.ru:latest
 docker rm -f $HOST
 docker run -d \
   --restart always \
