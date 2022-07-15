@@ -10,7 +10,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist \
     --optimize-autoloader \
-    --no-devgs
+    --no-dev
 
 FROM breakhack/roadrunner:2.9.1-alpine3.15
 COPY --from=vendor_installer /app/vendor/ /var/www/html/vendor/
