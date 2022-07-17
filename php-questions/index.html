@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.711350259144">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.711358977952">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Список вопросов на PHP</title>
     <meta name="title" content="Список вопросов на PHP">
-    <meta name="description" content="Список вопросов, которые задают PHP-разработчикам на технических собеседованиях" />
+    <meta name="description" content="Список вопросов, которые задают PHP-разработчикам на технических собеседованиях. Взято отсюда techrocks.ru" />
 
     <!-- Canonical -->
     <link rel="canonical" href="/php-questions/" />
@@ -20,26 +20,24 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/php-questions/">
     <meta property="og:title" content="Список вопросов на PHP">
-    <meta property="og:description" content="Список вопросов, которые задают PHP-разработчикам на технических собеседованиях">
+    <meta property="og:description" content="Список вопросов, которые задают PHP-разработчикам на технических собеседованиях. Взято отсюда techrocks.ru">
     <meta property="og:image" content="https://user-images.githubusercontent.com/37507557/179384568-3a854ecc-8a8f-4dea-bab2-af08c2219120.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/php-questions/">
     <meta property="twitter:title" content="Список вопросов на PHP">
-    <meta property="twitter:description" content="Список вопросов, которые задают PHP-разработчикам на технических собеседованиях">
+    <meta property="twitter:description" content="Список вопросов, которые задают PHP-разработчикам на технических собеседованиях. Взято отсюда techrocks.ru">
     <meta property="twitter:image" content="https://user-images.githubusercontent.com/37507557/179384568-3a854ecc-8a8f-4dea-bab2-af08c2219120.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.711350259144" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.711358977952" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.711350259144" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.711358977952" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.711350259144" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.711350259144" defer></script>
-    <link href="../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
-    <script id="katex-js" type="text/javascript" src="../resources/js/katex.js?v=2.4.0" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.711358977952" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.711358977952" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -163,7 +161,8 @@
         <span>Список вопросов на PHP</span>
     </h1>
 </doc-anchor-target>
-<p>Список вопросов, которые задают PHP-разработчикам на технических собеседованиях</p>
+<p>Список вопросов, которые задают PHP-разработчикам на технических собеседованиях.
+Взято отсюда <a href="https://techrocks.ru/2021/04/18/250-php-job-interview-questions/">techrocks.ru</a></p>
 <doc-anchor-target id="junior">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#junior">#</doc-anchor-trigger>
@@ -329,11 +328,11 @@ echo (int) $a / (int) $b;</code></pre>
 <li>Какой результат выдаст такой код:</li>
 </ol>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">var_dump (array_merge ([2 =&gt; 'a'], [3 =&gt; 'b']));</code></pre>
+<pre class="language-php"><code v-pre class="language-php">var_dump (array_merge([2 =&gt; 'a'], [3 =&gt; 'b']));</code></pre>
 </doc-codeblock></div>
 <ol start="100">
 <li>Есть массив товаров в случайном порядке с указанием производителей. Напишите метод для его сортировки, чтобы максимальное количество первых товаров соответствовало такому критерию: каждый следующий товар должен иметь производителя, отличного от предыдущего.</li>
-<li>Чему будет равняться <span class="math">x после выполнения выражения</span> x = 1 + «1%» + «$ 1»?</li>
+<li>Чему будет равняться <code v-pre>$x</code> после выполнения выражения <code v-pre>$x = 1 + &quot;1%&quot; + &quot;$1&quot;</code>?</li>
 <li>Есть массив Integer. Напишите возможные способы, как увеличить каждый элемент на единицу (1).</li>
 <li>Схематически реализовать структуру (классы) для задачи:</li>
 </ol>
@@ -343,14 +342,14 @@ echo (int) $a / (int) $b;</code></pre>
 <li>URL для размещения постов Google facebook.com/add-post?message=</li>
 </ul>
 <ol start="104">
-<li>Есть таблицы 2×3 и 3×2. Select * from a, b. Какова размерность результата?
-<figure class="content-center">
-    <img src="https://user-images.githubusercontent.com/37507557/179384568-3a854ecc-8a8f-4dea-bab2-af08c2219120.png" alt="image" />
-    <figcaption class="caption">image</figcaption>
+<li>Есть таблицы 2×3 и 3×2. <code v-pre>Select * from a, b</code>. Какова размерность результата?
+<figure class="content-left">
+    <img src="https://user-images.githubusercontent.com/37507557/179384568-3a854ecc-8a8f-4dea-bab2-af08c2219120.png" alt="" />
+    <figcaption class="caption caption-float"></figcaption>
 </figure>
-<figure class="content-center">
-    <img src="https://user-images.githubusercontent.com/37507557/179384574-55caaaff-bddc-4d05-b529-e4da0c8ab54b.png" alt="image" />
-    <figcaption class="caption">image</figcaption>
+<figure class="content-left">
+    <img src="https://user-images.githubusercontent.com/37507557/179384574-55caaaff-bddc-4d05-b529-e4da0c8ab54b.png" alt="" />
+    <figcaption class="caption caption-float"></figcaption>
 </figure>
 В таблице есть запросы:</li>
 </ol>
@@ -359,17 +358,17 @@ echo (int) $a / (int) $b;</code></pre>
 <li>все удаленные пользователи;</li>
 <li>все удаленные пользователи из конкретного города.
 Какие индексы для таблицы лучше всего поставить?
-<figure class="content-center">
-    <img src="https://user-images.githubusercontent.com/37507557/179384584-ded80ef9-8901-4553-a556-438a1a50845f.png" alt="image" />
-    <figcaption class="caption">image</figcaption>
+<figure class="content-left">
+    <img src="https://user-images.githubusercontent.com/37507557/179384584-ded80ef9-8901-4553-a556-438a1a50845f.png" alt="" />
+    <figcaption class="caption caption-float"></figcaption>
 </figure>
 </li>
 </ul>
 <ol start="105">
 <li>Напишите запрос для увеличения значения column1 на 1 для id = 2
-<figure class="content-center">
-    <img src="https://user-images.githubusercontent.com/37507557/179384587-5640d079-29eb-48bd-a4b2-5efacd2842fe.png" alt="image" />
-    <figcaption class="caption">image</figcaption>
+<figure class="content-left">
+    <img src="https://user-images.githubusercontent.com/37507557/179384587-5640d079-29eb-48bd-a4b2-5efacd2842fe.png" alt="" />
+    <figcaption class="caption caption-float"></figcaption>
 </figure>
 </li>
 <li>Напишите цикл for так, чтобы аргумент цикла менялся в геометрической прогрессии.</li>
@@ -413,7 +412,12 @@ print ((int) 'x52')</code></pre>
         <span>Middle</span>
     </h2>
 </doc-anchor-target>
-<p>Общие вопросы</p>
+<doc-anchor-target id="общие-вопросы-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#общие-вопросы-1">#</doc-anchor-trigger>
+        <span>Общие вопросы</span>
+    </h3>
+</doc-anchor-target>
 <ol>
 <li>Как передаются переменные (по значению или по ссылке)?</li>
 <li>Какие процессы происходят, когда пользователь вводит в браузере URL?</li>
@@ -468,267 +472,219 @@ print ((int) 'x52')</code></pre>
 <li>Как расшифровать 644 в правах на файл в Linux?</li>
 <li>Что такое Opcode?</li>
 </ol>
-<p>Git
-53. В чем разница между merge и rebase?
-54. Какой командой можно сделать ресет изменений, не потеряв их?
-55. Что такое stash и зачем он нужен?</p>
-<p>Базы данных
-56. В чем разница между MyISAM i InnoDB? Что в каких случаях лучше применять?</p>
-<ol start="57">
-<li><p>Как найти и оптимизировать «тяжелые» запросы?</p>
-</li>
-<li><p>Какие есть типы индексов?</p>
-</li>
-<li><p>Как хранить координаты точки на карте в БД?</p>
-</li>
-<li><p>Какие типы индексов бывают в RDBMS?</p>
-</li>
-<li><p>Какое свойство полей БД нужно учитывать при выборе типа индекса?</p>
-</li>
-<li><p>Когда следует использовать индексы, какие есть преимущества и недостатки?</p>
-</li>
-<li><p>Что такое ACID?</p>
-</li>
-<li><p>Что такое план выполнения запроса и как его узнать?</p>
-</li>
-<li><p>В чем разница между типами данных CHAR и VARCHAR в SQL?</p>
-</li>
-<li><p>Каково назначение транзакций? Расскажите о принципе работы.</p>
-</li>
-<li><p>Назовите 3-4 нормальные формы реляционных БД.</p>
-</li>
-<li><p>Каково назначение репликации? Какие есть типы связей и в чем разница между ними?</p>
-</li>
-<li><p>Что такое индексация? Какие есть типы индексов? Какой смысл их использовать?</p>
-</li>
-<li><p>Что такое полнотекстовый поиск в MySQL? Как он реализуется?</p>
-</li>
-<li><p>Что такое cursor в MySQL-процедурах?</p>
-</li>
-<li><p>Расскажите о RabbitMQ или Gearman.</p>
-</li>
-<li><p>Что знаете о Solr / ElasticSearch?</p>
-</li>
-<li><p>Что такое Дедлок MySQL?</p>
-</li>
-<li><p>Влияет ли порядок JOIN на план выполнения MySQL-запроса?</p>
-</li>
+<doc-anchor-target id="git-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#git-1">#</doc-anchor-trigger>
+        <span>Git</span>
+    </h3>
+</doc-anchor-target>
+<ol start="53">
+<li>В чем разница между merge и rebase?</li>
+<li>Какой командой можно сделать ресет изменений, не потеряв их?</li>
+<li>Что такое stash и зачем он нужен?</li>
 </ol>
-<p>Laravel
-76. Как и какие запросы формируются при использовании метода with()?</p>
-<ol start="77">
-<li>Чем отличаются методы with() и load()?</li>
+<doc-anchor-target id="базы-данных-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#базы-данных-1">#</doc-anchor-trigger>
+        <span>Базы данных</span>
+    </h3>
+</doc-anchor-target>
+<ol start="56">
+<li>В чем разница между MyISAM i InnoDB? Что в каких случаях лучше применять?</li>
+<li>Как найти и оптимизировать «тяжелые» запросы?</li>
+<li>Какие есть типы индексов?</li>
+<li>Как хранить координаты точки на карте в БД?</li>
+<li>Какие типы индексов бывают в RDBMS?</li>
+<li>Какое свойство полей БД нужно учитывать при выборе типа индекса?</li>
+<li>Когда следует использовать индексы, какие есть преимущества и недостатки?</li>
+<li>Что такое ACID?</li>
+<li>Что такое план выполнения запроса и как его узнать?</li>
+<li>В чем разница между типами данных CHAR и VARCHAR в SQL?</li>
+<li>Каково назначение транзакций? Расскажите о принципе работы.</li>
+<li>Назовите 3-4 нормальные формы реляционных БД.</li>
+<li>Каково назначение репликации? Какие есть типы связей и в чем разница между ними?</li>
+<li>Что такое индексация? Какие есть типы индексов? Какой смысл их использовать?</li>
+<li>Что такое полнотекстовый поиск в MySQL? Как он реализуется?</li>
+<li>Что такое cursor в MySQL-процедурах?</li>
+<li>Расскажите о RabbitMQ или Gearman.</li>
+<li>Что знаете о Solr / ElasticSearch?</li>
+<li>Что такое Дедлок MySQL?</li>
+<li>Влияет ли порядок JOIN на план выполнения MySQL-запроса?</li>
 </ol>
-<p>Практические задания
-78. Вам нужно спарсить продукты и их цены из интернет-магазина. С помощью чего будете это делать и какие основные нюансы нужно учесть?</p>
-<ol start="79">
-<li><p>Для сайта пользователей необходимо сделать механизм добавления и отображения аватарок. Как бы вы его реализовали?</p>
-</li>
-<li><p>Какой результат выдаст такой код:</p>
-</li>
+<doc-anchor-target id="laravel-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#laravel-2">#</doc-anchor-trigger>
+        <span>Laravel</span>
+    </h3>
+</doc-anchor-target>
+<ol start="76">
+<li>Как и какие запросы формируются при использовании метода with()?</li>
+<li>Чем отличаются методы with() и load()?
+Практические задания</li>
+<li>Вам нужно спарсить продукты и их цены из интернет-магазина. С помощью чего будете это делать и какие основные нюансы нужно учесть?</li>
+<li>Для сайта пользователей необходимо сделать механизм добавления и отображения аватарок. Как бы вы его реализовали?</li>
+<li>Какой результат выдаст такой код:</li>
 </ol>
-<p>class Test
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">class Test
 {
-public $ value;
-}</p>
-<p>$a = new Test;
-$a-&gt;value = 1;</p>
-<p>$b = $ a;
-$b-&gt;value = 2;</p>
-<p>echo $a-&gt;value;
-81. Какие модификаторы доступа допустимы в реализации метода getName:</p>
-<p>abstract class Cls
-{
-protected abstract function getName ();
-}</p>
-<p>class Child extends Cls
-{
-(Public, protected, private) function getName () 
+    public $ value;
 }
-82. Реализуйте очередь сообщений, используя MySQL для хранения данных. Как избежать ситуации, когда несколько воркеров получат в обработку одинаковое сообщение?</p>
-<ol start="83">
-<li><p>Есть матрица с числами 3×3. Как найти числа, не имеющие парных / нечетных соседей?</p>
-</li>
-<li><p>Есть мануал на API от Европейского центрального банка по курсу валют. Нужно найти минимумы-максимумы за 5 лет, а потом то же, но с разбивкой по месяцам.</p>
-</li>
-<li><p>Сохраните свою библиотеку в БД. Нужно сохранить названия книг и имена авторов. Предложите структуру таблиц. Выведите отчет «книга — количество соавторов».</p>
-</li>
-<li><p class_name="" method_name="">Реализуйте простой роутинг, обеспечивающий работу Рауса по шаблону &quot;/  /  /&quot;</p>
-</li>
-<li><p>Напишите архитектуру, которая основывается на базовой абстракции. Дочерние классы расширяются с помощью интерфейсов. Реализацию одинаковых методов выполните, используя трейты (реализовывать в абстракции).</p>
-</li>
-<li><p>Напишите запрос, в результате выполнения которого выведется значение «id» и «val», если значение столбца column&gt; 5 =&gt; val = val1 иначе val2.</p>
-</li>
-<li><p>Laravel: напишите расписание, которое будет выполняться по пятницам каждый час в 15 минут.</p>
-</li>
-<li><p>Напишите кастомную artisan-команду, которая будет выводить в консоль текущее время.</p>
-</li>
+ 
+$a = new Test;
+$a-&gt;value = 1;
+ 
+$b = $ a;
+$b-&gt;value = 2;
+ 
+echo $a-&gt;value;</code></pre>
+</doc-codeblock></div>
+<ol start="81">
+<li>Какие модификаторы доступа допустимы в реализации метода getName:</li>
 </ol>
-<p>Senior</p>
-<p>Photo by Nguyen Dang Hoang Nhu on Unsplash
-Общие вопросы</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">abstract class Cls
+{
+    protected abstract function getName ();
+}
+ 
+class Child extends Cls
+{
+    (Public, protected, private) function getName () {}
+}</code></pre>
+</doc-codeblock></div>
+<ol start="82">
+<li>Реализуйте очередь сообщений, используя MySQL для хранения данных. Как избежать ситуации, когда несколько воркеров получат в обработку одинаковое сообщение?</li>
+<li>Есть матрица с числами 3×3. Как найти числа, не имеющие парных / нечетных соседей?</li>
+<li>Есть мануал на API от Европейского центрального банка по курсу валют. Нужно найти минимумы-максимумы за 5 лет, а потом то же, но с разбивкой по месяцам.</li>
+<li>Сохраните свою библиотеку в БД. Нужно сохранить названия книг и имена авторов. Предложите структуру таблиц. Выведите отчет «книга — количество соавторов».</li>
+<li>Реализуйте простой роутинг, обеспечивающий работу Рауса по шаблону &quot;/  /  /&quot;</li>
+<li>Напишите архитектуру, которая основывается на базовой абстракции. Дочерние классы расширяются с помощью интерфейсов. Реализацию одинаковых методов выполните, используя трейты (реализовывать в абстракции).</li>
+<li>Напишите запрос, в результате выполнения которого выведется значение «id» и «val», если значение столбца column&gt; 5 =&gt; val = val1 иначе val2.
+<figure class="content-left">
+    <img src="https://techrocks.ru/wp-content/uploads/2021/04/Screenshot-from-2021-04-18-23.09.01.png" alt="" />
+    <figcaption class="caption caption-float"></figcaption>
+</figure>
+</li>
+<li>Laravel: напишите расписание, которое будет выполняться по пятницам каждый час в 15 минут.</li>
+<li>Напишите кастомную artisan-команду, которая будет выводить в консоль текущее время.</li>
+</ol>
+<doc-anchor-target id="senior">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#senior">#</doc-anchor-trigger>
+        <span>Senior</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="общие-вопросы-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#общие-вопросы-2">#</doc-anchor-trigger>
+        <span>Общие вопросы</span>
+    </h3>
+</doc-anchor-target>
 <ol>
-<li><p>Как вы понимаете REST?</p>
-</li>
-<li><p>Что такое Copy-on-write?</p>
-</li>
-<li><p>Что такое позднее статическое связывание?</p>
-</li>
-<li><p>Что такое CQRS?</p>
-</li>
-<li><p>Что такое cohesion и coupling?</p>
-</li>
-<li><p>Как можно получить значение частного свойства класса в рантайме?</p>
-</li>
-<li><p>Как можно получить значение частного свойства класса в рантайме без использования рефлексии?</p>
-</li>
-<li><p>Стоит ли использовать в методах значение по умолчанию null? Если нет, то почему?</p>
-</li>
-<li><p>Стоит ли возвращать null из методов? Если нет, то почему и как писать код в таких случаях?</p>
-</li>
-<li><p>Стоит ли передавать null как параметр методов? Если нет, то почему и как писать код?</p>
-</li>
-<li><p>Как вы понимаете Special Case / Null Object и где его следует применять?</p>
-</li>
-<li><p>Какой подход следует применить во время тестирования кода, имеющего внешние зависимости (например, обращение к API Google)?</p>
-</li>
-<li><p>Что такое DDD?</p>
-</li>
-<li><p>Что такое микросервисная архитектура?</p>
-</li>
-<li><p>Какие есть способы коммуникации между микросервисамы?</p>
-</li>
-<li><p>Расскажите о ReactPHP или Swoole.</p>
-</li>
-<li><p>Что такое фильтр Блума?</p>
-</li>
-<li><p>Что такое gap locks в MySQL?</p>
-</li>
-<li><p>Зачем нужно кэширование? Какую проблему оно решает?</p>
-</li>
-<li><p>Какие виды кеш-хранилищ вы знаете и применяли? Чем они отличаются?</p>
-</li>
-<li><p>Чем характеризуется эффективность кэширования?</p>
-</li>
-<li><p>Приведите сложный пример кэширования на практике.</p>
-</li>
-<li><p>Что такое sensitive данные? Как хранятся в базе? Как отражаются в логах?</p>
-</li>
-<li><p>Коротко расскажите об истории PHP. Что появлялось в каждой версии? Куда развивается PHP на ваш взгляд? Что нового в последней версии?</p>
-</li>
-<li><p>Как в PHP очистить память?</p>
-</li>
-<li><p>Что такое антипаттерны? Приведите несколько примеров.</p>
-</li>
-<li><p>Как сделать рефакторинг большого legacy-проекта? Как это аргументировать / продать PM-у, заказчику?</p>
-</li>
-<li><p>Чем отличается Dependency Injection от Service Locator?</p>
-</li>
-<li><p>Расскажите об утечке памяти в PHP. Приведите примеры. Как боролись?</p>
-</li>
-<li><p>Как работает Garbage Collector? Когда есть смысл вызвать?</p>
-</li>
-<li><p>По какому принципу будете выбирать архитектуру для своей будущей программы?</p>
-</li>
-<li><p>С какими видами архитектуры приложений сталкивались?</p>
-</li>
-<li><p>Структуры данных. Какие знаете, какие использовали на практике?</p>
-</li>
-<li><p>С какими еще видами API сталкивались? Какие были проблемы? Как решали?</p>
-</li>
-<li><p>Как вы понимаете Exception flow в контексте PHP?</p>
-</li>
-<li><p>Расскажите об автоматических анализаторах кода PHP (Roundcube т.д.).</p>
-</li>
-<li><p>Расскажите о Performance &amp; профилировании PHP-кода (Xdebug, XHprof т.д.).</p>
-</li>
-<li><p>Расскажите, как бы вы реализовали систему, когда есть много источников данных, возвращающих в различных форматах данные о пользователе. Есть получатели данных, выбирающие, из каких источников они хотят принимать данные API.</p>
-</li>
-<li><p>Расскажите о проекте, которым по-настоящему гордитесь. Какие технологически необычные решения вы применили для его успешной реализации?</p>
-</li>
-<li><p>Как вы организуете тестирование кода? Когда покрытие тестами нерационально? Были ли у вас такие проекты?</p>
-</li>
+<li>Как вы понимаете REST?</li>
+<li>Что такое Copy-on-write?</li>
+<li>Что такое позднее статическое связывание?</li>
+<li>Что такое CQRS?</li>
+<li>Что такое cohesion и coupling?</li>
+<li>Как можно получить значение частного свойства класса в рантайме?</li>
+<li>Как можно получить значение частного свойства класса в рантайме без использования рефлексии?</li>
+<li>Стоит ли использовать в методах значение по умолчанию null? Если нет, то почему?</li>
+<li>Стоит ли возвращать null из методов? Если нет, то почему и как писать код в таких случаях?</li>
+<li>Стоит ли передавать null как параметр методов? Если нет, то почему и как писать код?</li>
+<li>Как вы понимаете Special Case / Null Object и где его следует применять?</li>
+<li>Какой подход следует применить во время тестирования кода, имеющего внешние зависимости (например, обращение к API Google)?</li>
+<li>Что такое DDD?</li>
+<li>Что такое микросервисная архитектура?</li>
+<li>Какие есть способы коммуникации между микросервисамы?</li>
+<li>Расскажите о ReactPHP или Swoole.</li>
+<li>Что такое фильтр Блума?</li>
+<li>Что такое gap locks в MySQL?</li>
+<li>Зачем нужно кэширование? Какую проблему оно решает?</li>
+<li>Какие виды кеш-хранилищ вы знаете и применяли? Чем они отличаются?</li>
+<li>Чем характеризуется эффективность кэширования?</li>
+<li>Приведите сложный пример кэширования на практике.</li>
+<li>Что такое sensitive данные? Как хранятся в базе? Как отражаются в логах?</li>
+<li>Коротко расскажите об истории PHP. Что появлялось в каждой версии? Куда развивается PHP на ваш взгляд? Что нового в последней версии?</li>
+<li>Как в PHP очистить память?</li>
+<li>Что такое антипаттерны? Приведите несколько примеров.</li>
+<li>Как сделать рефакторинг большого legacy-проекта? Как это аргументировать / продать PM-у, заказчику?</li>
+<li>Чем отличается Dependency Injection от Service Locator?</li>
+<li>Расскажите об утечке памяти в PHP. Приведите примеры. Как боролись?</li>
+<li>Как работает Garbage Collector? Когда есть смысл вызвать?</li>
+<li>По какому принципу будете выбирать архитектуру для своей будущей программы?</li>
+<li>С какими видами архитектуры приложений сталкивались?</li>
+<li>Структуры данных. Какие знаете, какие использовали на практике?</li>
+<li>С какими еще видами API сталкивались? Какие были проблемы? Как решали?</li>
+<li>Как вы понимаете Exception flow в контексте PHP?</li>
+<li>Расскажите об автоматических анализаторах кода PHP (Roundcube т.д.).</li>
+<li>Расскажите о Performance &amp; профилировании PHP-кода (Xdebug, XHprof т.д.).</li>
+<li>Расскажите, как бы вы реализовали систему, когда есть много источников данных, возвращающих в различных форматах данные о пользователе. Есть получатели данных, выбирающие, из каких источников они хотят принимать данные API.</li>
+<li>Расскажите о проекте, которым по-настоящему гордитесь. Какие технологически необычные решения вы применили для его успешной реализации?</li>
+<li>Как вы организуете тестирование кода? Когда покрытие тестами нерационально? Были ли у вас такие проекты?
+Git</li>
+<li>Как изменить только сообщение последнего коммита?</li>
+<li>git rebase -i HEAD ~ 3 что делает эта команда и какие могут возникнуть проблемы при ее применении?</li>
+<li>Зачем команда git bundle?</li>
+<li>Какой командой можно влить коммит в текущую ветку?</li>
+<li>Как выполнить склеивание коммитов?
+Базы данных</li>
+<li>Какие структуры данных поддерживает Redis?</li>
+<li>Что подразумевается под понятием «триггер» в SQL?</li>
+<li>Какая разница между реляционными и нереляционными СУБД?</li>
+<li>Какие NoSQL СУБД знаете?</li>
+<li>Что такое ACID Compliance?</li>
+<li>Что такое Views? Какие преимущества и недостатки?</li>
+<li>Что такое уровни изоляции транзакций?</li>
+<li>Что такое concurrent query?</li>
+<li>Что такое кластерные индексы?</li>
+<li>Как построить социальную сеть, которая выдержит нагрузки в 100 000 посетителей в онлайне и сможет предлагать в друзья пользователям, например, из Нью-Йорка, людей, живущих в этом городе. Данных много, работать система должна быстро. Как все хранить? По какому принципу строить запросы?
+Практические задания</li>
+<li>Какой принцип нарушен в коде и как можно исправить код?</li>
 </ol>
-<p>Git
-41. Как изменить только сообщение последнего коммита?</p>
-<ol start="42">
-<li><p>git rebase -i HEAD ~ 3 что делает эта команда и какие могут возникнуть проблемы при ее применении?</p>
-</li>
-<li><p>Зачем команда git bundle?</p>
-</li>
-<li><p>Какой командой можно влить коммит в текущую ветку?</p>
-</li>
-<li><p>Как выполнить склеивание коммитов?</p>
-</li>
-</ol>
-<p>Базы данных
-46. Какие структуры данных поддерживает Redis?</p>
-<ol start="47">
-<li><p>Что подразумевается под понятием «триггер» в SQL?</p>
-</li>
-<li><p>Какая разница между реляционными и нереляционными СУБД?</p>
-</li>
-<li><p>Какие NoSQL СУБД знаете?</p>
-</li>
-<li><p>Что такое ACID Compliance?</p>
-</li>
-<li><p>Что такое Views? Какие преимущества и недостатки?</p>
-</li>
-<li><p>Что такое уровни изоляции транзакций?</p>
-</li>
-<li><p>Что такое concurrent query?</p>
-</li>
-<li><p>Что такое кластерные индексы?</p>
-</li>
-<li><p>Как построить социальную сеть, которая выдержит нагрузки в 100 000 посетителей в онлайне и сможет предлагать в друзья пользователям, например, из Нью-Йорка, людей, живущих в этом городе. Данных много, работать система должна быстро. Как все хранить? По какому принципу строить запросы?</p>
-</li>
-</ol>
-<p>Практические задания
-56. Какой принцип нарушен в коде и как можно исправить код?</p>
-<p>class Shape
-{
-public $width;
-public $height;</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">        public function __construct($width, $height)
-        {
-                    $this-&gt;width = $width;
-                    $this-&gt;height = $height;
-        }</code></pre>
-</doc-codeblock></div>
-<p>}</p>
-<p>class Triangle
+<pre class="language-php"><code v-pre class="language-php">class Shape
 {
-public $radius;</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">        public function __construct($radius)
-        {
-                    $this-&gt;radius = $radius;
-        }</code></pre>
-</doc-codeblock></div>
-<p>}</p>
-<p>class AreaCalculator
-{
-public function calculate($shapes)
-{
-foreach ($shapes as $shape) {
-if (is_a($shape, &#x27;Square&#x27;)) {
-$area[] = $shape-&gt;width * $shape-&gt;height;
-} else if (is_a($shape, &#x27;Triangle&#x27;)) {
-$area[] = $shape-&gt;radius * $shape-&gt;radius * pi();
+    public $width;
+    public $height;
+
+    public function __construct($width, $height)
+    {
+        $this-&gt;width = $width;
+        $this-&gt;height = $height;
+    }
 }
-}</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">        return array_sum($area);
-        }</code></pre>
+ 
+class Triangle
+{
+    public $radius;
+
+    public function __construct($radius)
+    {
+        $this-&gt;radius = $radius;
+    }
+}
+ 
+class AreaCalculator
+{
+    public function calculate($shapes)
+    {
+        foreach ($shapes as $shape) {
+            if (is_a($shape, 'Square')) {
+                $area[] = $shape-&gt;width * $shape-&gt;height;
+            } else if (is_a($shape, 'Triangle')) {
+                $area[] = $shape-&gt;radius * $shape-&gt;radius * pi();
+            }
+        }
+
+        return array_sum($area);
+    }
+}</code></pre>
 </doc-codeblock></div>
-<p>}
-57. Есть массив из 10 млн. уникальных строк. Программа получает новую строку, необходимо найти все строки из массива, удовлетворяющие критерию: расстояние Левенштейна до новой строки меньше 3 операций.</p>
-<ol start="58">
-<li><p>Нужно построить сервер отсылки емейлов. Какие классы / слои / абстракции вы бы выделили?</p>
-</li>
-<li><p>Как бы вы реализовали сокращалку урлов, сжиматель / разжиматель изображений, парсер последних сообщений форума, где упоминается определенный бренд, проверку цен на товары у конкурентов?</p>
-</li>
+<ol start="57">
+<li>Есть массив из 10 млн. уникальных строк. Программа получает новую строку, необходимо найти все строки из массива, удовлетворяющие критерию: расстояние Левенштейна до новой строки меньше 3 операций.</li>
+<li>Нужно построить сервер отсылки емейлов. Какие классы / слои / абстракции вы бы выделили?</li>
+<li>Как бы вы реализовали сокращалку урлов, сжиматель / разжиматель изображений, парсер последних сообщений форума, где упоминается определенный бренд, проверку цен на товары у конкурентов?</li>
 </ol>
 
                                 
@@ -789,6 +745,6 @@ $area[] = $shape-&gt;radius * $shape-&gt;radius * pi();
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Список вопросов на PHP", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: true }</script>
+    <script>window.__DOCS__ = { "title": "Список вопросов на PHP", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
