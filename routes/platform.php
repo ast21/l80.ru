@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -13,4 +15,4 @@ declare(strict_types=1);
 |
 */
 
-//Route::screen('idea', Idea::class, 'platform.screens.idea');
+Route::screen('php', \App\Orchid\Screens\PHPScreen::class)->name('platform.php');
