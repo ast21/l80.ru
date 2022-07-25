@@ -12,3 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('choose', [\App\Http\Controllers\ChooseController::class, 'index'])->name('choose.index');
