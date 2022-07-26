@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::screen('php', \App\Orchid\Screens\PHPScreen::class)->name('platform.php');
+Route::screen('choices', \App\Orchid\Screens\ChoiceListScreen::class)->name('platform.choices.list');
+Route::screen('choice/{choice?}', \App\Orchid\Screens\ChoiceEditScreen::class)->name('platform.choices.edit');
