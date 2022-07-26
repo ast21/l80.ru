@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('choose', [\App\Http\Controllers\ChooseController::class, 'index'])->name('choose.index');
+Route::get('choice', [\App\Http\Controllers\ChoiceController::class, 'index'])->name('choice.index');

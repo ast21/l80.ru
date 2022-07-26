@@ -2167,10 +2167,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('.choose_first').addEventListener('click', function () {
+  document.querySelector('.choice_first').addEventListener('click', function () {
     console.log('first');
   });
-  document.querySelector('.choose_second').addEventListener('click', function () {
+  document.querySelector('.choice_second').addEventListener('click', function () {
     console.log('second');
   });
 });

@@ -1,6 +1,6 @@
 <html lang="ru">
 <head>
-  <title>Choose</title>
+  <title>choice</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<div class="choose_container">
-  <div class="choose_first">
+<div class="choice_container">
+  <div class="choice_first">
     <div>{{ $item1 }}</div>
   </div>
-  <div class="choose_second">
+  <div class="choice_second">
     <div>{{ $item2 }}</div>
   </div>
 </div>

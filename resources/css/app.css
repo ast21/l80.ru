@@ -2,17 +2,17 @@
     margin: 0;
 }
 
-html, body, .choose_container {
+html, body, .choice_container {
     width: 100%;
     height: 100%;
 }
 
-.choose_container {
+.choice_container {
     display: flex;
     flex-direction: row;
 }
 
-.choose_first {
+.choice_first {
     width: 50%;
     height: 100%;
     display: flex;
@@ -21,7 +21,7 @@ html, body, .choose_container {
     border-right: 2px solid red;
 }
 
-.choose_second {
+.choice_second {
     width: 50%;
     height: 100%;
     display: flex;
