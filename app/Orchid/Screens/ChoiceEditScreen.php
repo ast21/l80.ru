@@ -6,6 +6,8 @@ use App\Models\Choice;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Matrix;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
@@ -74,6 +76,17 @@ class ChoiceEditScreen extends Screen
                     ->title("Название")
                     ->placeholder('Введите навзание')
                     ->value($this->choice->name),
+                Matrix::make('questions')
+                    ->title('Вопросы')
+                    ->columns([
+                        'ID' => 'id',
+                        'Название' => 'name',
+                    ])
+                    ->fields([
+                        'id' => Input::make()->disabled(),
+                        'name' => Input::make(),
+                    ])
+                    ->value($this->choice->questions()->get()),
             ]),
         ];
     }
@@ -83,9 +96,13 @@ class ChoiceEditScreen extends Screen
         $request->validate([
             'choice' => ['required', 'array'],
             'choice.name' => ['required', 'string', 'max:255'],
+            'questions' => ['required', 'array'],
+            'questions.*.name' => ['required', 'string', 'max:255'],
         ]);
 
         $choice->fill($request->get('choice'))->save();
+        $choice->questions()->delete();
+        $choice->questions()->createMany($request->get('questions'));
 
         Alert::info('Вы успешно добавили выбор.');
 

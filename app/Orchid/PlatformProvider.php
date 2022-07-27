@@ -43,7 +43,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.php'),
 
             Menu::make(__('Choices'))
-                ->icon('choice')
+                ->icon('layers')
                 ->route('platform.choices.list'),
         ];
     }
