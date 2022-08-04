@@ -2,12 +2,11 @@
 
 namespace App\Orchid\Screens;
 
+use App\Orchid\Fields\Interpreter;
 use App\Orchid\Layouts\PHPListener;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Support\Facades\Alert;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
-use Orchid\Support\Facades\Toast;
+use Orchid\Support\Facades\Layout;
 
 class PHPScreen extends Screen
 {
@@ -55,6 +54,10 @@ class PHPScreen extends Screen
             Layout::rows([
                 TextArea::make('content')
                     ->title('PHP Code')
+                    ->style('max-width: 100%;')
+                    ->rows(10),
+                Interpreter::make('interpreter')
+                    ->title('Interpreter')
                     ->style('max-width: 100%;')
                     ->rows(10),
             ]),
