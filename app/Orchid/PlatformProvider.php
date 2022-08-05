@@ -40,7 +40,7 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make(__('PHP Interpreter'))
                 ->icon('code')
-                ->route('platform.php'),
+                ->route('platform.interpreter'),
 
             Menu::make(__('Choices'))
                 ->icon('layers')
