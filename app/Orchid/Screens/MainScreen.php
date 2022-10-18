@@ -47,7 +47,7 @@ class MainScreen extends Screen
     public function layout(): iterable
     {
         return [
-            Layout::view('main', ['quote' => Quote::inRandomOrder()->limit(1)->first()->content]),
+            Layout::view('main', ['quote' => Quote::inRandomOrder()->limit(1)->first()]),
         ];
     }
 }

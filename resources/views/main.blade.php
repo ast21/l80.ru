@@ -4,7 +4,7 @@
         <div class="col mt-6 p-4">
 
             <h2 class="mt-2 text-dark fw-light">
-                {{ $quote }}
+                {{ $quote?->content }}
             </h2>
         </div>
     </div>
