@@ -1,5 +1,11 @@
 # Laravel this backend l80.ru
 
+### Build and push
+```shell
+docker build -t breakhack/l80.ru .
+docker push breakhack/l80.ru
+```
+
 ### Run in server
 ```shell
 HOST=l80.ru
