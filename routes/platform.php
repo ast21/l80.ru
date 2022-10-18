@@ -22,3 +22,5 @@ Route::screen('choice/{choice?}', \App\Orchid\Screens\ChoiceEditScreen::class)->
 
 Route::screen('quotes', \App\Orchid\Screens\Quote\QuoteListScreen::class)->name('platform.quotes.list');
 Route::screen('quote/{quote?}', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.edit');
+
+Route::screen('main', \App\Orchid\Screens\MainScreen::class)->name('platform.main');
