@@ -45,6 +45,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Choices'))
                 ->icon('layers')
                 ->route('platform.choices.list'),
+
+            Menu::make(__('Quotes'))
+                ->icon('quote')
+                ->route('platform.quotes.list'),
         ];
     }
 

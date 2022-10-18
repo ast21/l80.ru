@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::screen('interpreter', \App\Orchid\Screens\InterpreterScreen::class)->name('platform.interpreter');
+
 Route::screen('choices', \App\Orchid\Screens\ChoiceListScreen::class)->name('platform.choices.list');
 Route::screen('choice/{choice?}', \App\Orchid\Screens\ChoiceEditScreen::class)->name('platform.choices.edit');
+
+Route::screen('quotes', \App\Orchid\Screens\Quote\QuoteListScreen::class)->name('platform.quotes.list');
+Route::screen('quote/{quote?}', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.edit');
