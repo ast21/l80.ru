@@ -49,6 +49,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Quotes'))
                 ->icon('quote')
                 ->route('platform.quotes.list'),
+
+            Menu::make(__('FAQ'))
+                ->icon('question')
+                ->route('platform.faqs.list'),
         ];
     }
 

@@ -23,4 +23,10 @@ Route::screen('choice/{choice?}', \App\Orchid\Screens\ChoiceEditScreen::class)->
 Route::screen('quotes', \App\Orchid\Screens\Quote\QuoteListScreen::class)->name('platform.quotes.list');
 Route::screen('quote/{quote?}', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.edit');
 
+Route::group(['prefix' => 'faqs'], function () {
+    Route::screen('/', \App\Orchid\Screens\FAQ\FAQListScreen::class)->name('platform.faqs.list');
+    Route::screen('/create', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.create');
+    Route::screen('/{post}/edit', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.edit');
+});
+
 Route::screen('main', \App\Orchid\Screens\MainScreen::class)->name('platform.main');
