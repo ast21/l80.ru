@@ -6,6 +6,7 @@ use App\Models\FAQ;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
@@ -34,22 +35,38 @@ class FAQListLayout extends Table
             }),
             TD::make('question', 'Вопрос')->render(fn(FAQ $faq) => $faq->question),
             TD::make('active', 'Активен')->alignCenter()->bool(),
-            TD::make('edit', 'Действия')->render(function (FAQ $faq) {
-                return DropDown::make()
-                    ->icon('options-vertical')
-                    ->list([
-                        Link::make(__('Edit'))
-                            ->route('platform.faqs.edit', $faq->id)
-                            ->icon('pencil'),
-                        Button::make(__('Delete'))
-                            ->method('remove')
-                            ->icon('trash')
-                            ->confirm(__('Вы уверены, что хотите удалить вопрос?'))
-                            ->parameters([
-                                'id' => $faq->id,
-                            ]),
-                    ]);
-            }),
+            TD::make('sort', 'Сортировка')
+                ->alignCenter()
+                ->width(130)
+                ->render(function (FAQ $faq) {
+                    return Group::make([
+                        Button::make('')
+                            ->method('up')
+                            ->icon('arrow-up')
+                            ->parameters(['id' => $faq->id]),
+                        Button::make('')
+                            ->method('down')
+                            ->icon('arrow-down')
+                            ->parameters(['id' => $faq->id]),
+                    ])->autoWidth();
+                }),
+            TD::make('edit', 'Действия')
+                ->alignRight()
+                ->width(100)
+                ->render(function (FAQ $faq) {
+                    return DropDown::make()
+                        ->icon('options-vertical')
+                        ->list([
+                            Link::make(__('Edit'))
+                                ->route('platform.faqs.edit', $faq->id)
+                                ->icon('pencil'),
+                            Button::make(__('Delete'))
+                                ->method('remove')
+                                ->icon('trash')
+                                ->confirm(__('Вы уверены, что хотите удалить вопрос?'))
+                                ->parameters(['id' => $faq->id]),
+                        ]);
+                }),
         ];
     }
 }

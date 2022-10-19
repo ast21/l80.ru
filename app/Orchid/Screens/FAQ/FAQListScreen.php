@@ -19,7 +19,7 @@ class FAQListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'faqs' => FAQ::paginate(),
+            'faqs' => FAQ::defaultOrder()->paginate(),
         ];
     }
 
@@ -63,5 +63,17 @@ class FAQListScreen extends Screen
     {
         FAQ::findOrFail($request->get('id'))->delete();
         Toast::info('вопрос успешно удален');
+    }
+
+    public function up(Request $request): void
+    {
+        FAQ::findOrFail($request->get('id'))->up();
+        Toast::info('Элемент успешно поднят');
+    }
+
+    public function down(Request $request): void
+    {
+        FAQ::findOrFail($request->get('id'))->down();
+        Toast::info('Элемент успешно опущен');
     }
 }
