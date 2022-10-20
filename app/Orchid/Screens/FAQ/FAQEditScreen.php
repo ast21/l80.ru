@@ -81,7 +81,6 @@ class FAQEditScreen extends Screen
                     ->value($this->faq->question),
                 Quill::make('faq.answer')
                     ->title("Ответ")
-                    ->required()
                     ->value($this->faq->answer),
                 CheckBox::make('faq.active')
                     ->sendTrueOrFalse()
@@ -97,7 +96,7 @@ class FAQEditScreen extends Screen
         $request->validate([
             'faq' => ['required', 'array'],
             'faq.question' => ['required', 'string', 'max:1000'],
-            'faq.answer' => ['required', 'string', 'max:10000'],
+            'faq.answer' => ['nullable', 'string', 'max:10000'],
             'faq.active' => ['required', 'boolean'],
         ]);
 
