@@ -30,7 +30,7 @@ class FAQListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make("id", '#')->render(function (FAQ $faq) {
+            TD::make("id", '#')->alignCenter()->width(50)->render(function (FAQ $faq) {
                 return Link::make($faq->id)->route('platform.faqs.edit', $faq->id);
             }),
             TD::make('question', 'Вопрос')->render(fn(FAQ $faq) => $faq->question),
