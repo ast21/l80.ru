@@ -34,7 +34,8 @@ class FAQListLayout extends Table
                 return Link::make($faq->id)->route('platform.faqs.edit', $faq->id);
             }),
             TD::make('question', 'Вопрос')->render(fn(FAQ $faq) => $faq->question),
-            TD::make('active', 'Активен')->alignCenter()->bool(),
+            TD::make('answer', 'Отвечено')->alignCenter()->width(100)->bool(),
+            TD::make('active', 'Активен')->alignCenter()->width(100)->bool(),
             TD::make('sort', 'Сортировка')
                 ->alignCenter()
                 ->width(130)
