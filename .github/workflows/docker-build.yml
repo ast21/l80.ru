@@ -12,10 +12,6 @@ jobs:
       - name: Login to registry
         run: echo "${{ secrets.GH_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build image
-        run: |
-          docker build \
-            -t ghcr.io/${{ github.repository }}/main:latest \
-            --build-arg LARAVEL_ENV_ENCRYPTION_KEY=${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }} \
-            .
+        run: docker build -t ghcr.io/${{ github.repository }}/main:latest .
       - name: Push image
         run: docker push ghcr.io/${{ github.repository }}/main:latest
