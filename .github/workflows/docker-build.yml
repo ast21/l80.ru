@@ -1,0 +1,17 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Login to registry
+        run: echo "${{ secrets.GH_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build image
+        run: docker build -t ghcr.io/${{ github.repository }}/main:latest .
+      - name: Push image
+        run: docker push ghcr.io/${{ github.repository }}/main:latest
