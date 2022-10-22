@@ -29,7 +29,7 @@ class QuoteListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Цитаты';
+        return __('Quotes');
     }
 
     /**
