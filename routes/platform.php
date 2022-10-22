@@ -20,13 +20,16 @@ Route::screen('interpreter', \App\Orchid\Screens\InterpreterScreen::class)->name
 Route::screen('choices', \App\Orchid\Screens\ChoiceListScreen::class)->name('platform.choices.list');
 Route::screen('choice/{choice?}', \App\Orchid\Screens\ChoiceEditScreen::class)->name('platform.choices.edit');
 
-Route::screen('quotes', \App\Orchid\Screens\Quote\QuoteListScreen::class)->name('platform.quotes.list');
-Route::screen('quote/{quote?}', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.edit');
+Route::group(['prefix' => 'quotes'], function () {
+    Route::screen('/', \App\Orchid\Screens\Quote\QuoteListScreen::class)->name('platform.quotes.list');
+    Route::screen('/create', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.create');
+    Route::screen('/{quote}/edit', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.edit');
+});
 
 Route::group(['prefix' => 'faqs'], function () {
     Route::screen('/', \App\Orchid\Screens\FAQ\FAQListScreen::class)->name('platform.faqs.list');
     Route::screen('/create', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.create');
-    Route::screen('/{post}/edit', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.edit');
+    Route::screen('/{faq}/edit', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.edit');
 });
 
 Route::screen('main', \App\Orchid\Screens\MainScreen::class)->name('platform.main');

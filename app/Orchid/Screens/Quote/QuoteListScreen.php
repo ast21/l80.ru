@@ -42,7 +42,7 @@ class QuoteListScreen extends Screen
         return [
             Link::make('Добавить')
                 ->icon('plus')
-                ->route('platform.quotes.edit'),
+                ->route('platform.quotes.create'),
         ];
     }
 
