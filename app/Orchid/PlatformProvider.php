@@ -12,12 +12,11 @@ use Orchid\Screen\Actions\Menu;
 class PlatformProvider extends OrchidServiceProvider
 {
     /**
-     * @param Dashboard $dashboard
+     * @param  Dashboard  $dashboard
      */
     public function boot(Dashboard $dashboard): void
     {
         parent::boot($dashboard);
-
         // ...
     }
 
@@ -53,6 +52,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('FAQ'))
                 ->icon('question')
                 ->route('platform.faqs.list'),
+
+            Menu::make(__('Goals'))
+                ->icon('target')
+                ->route('platform.goals.list'),
         ];
     }
 

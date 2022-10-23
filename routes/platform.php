@@ -25,11 +25,15 @@ Route::group(['prefix' => 'quotes'], function () {
     Route::screen('/create', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.create');
     Route::screen('/{quote}/edit', \App\Orchid\Screens\Quote\QuoteEditScreen::class)->name('platform.quotes.edit');
 });
-
 Route::group(['prefix' => 'faqs'], function () {
     Route::screen('/', \App\Orchid\Screens\FAQ\FAQListScreen::class)->name('platform.faqs.list');
     Route::screen('/create', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.create');
     Route::screen('/{faq}/edit', \App\Orchid\Screens\FAQ\FAQEditScreen::class)->name('platform.faqs.edit');
+});
+Route::group(['prefix' => 'goals'], function () {
+    Route::screen('/', \App\Orchid\Screens\Goal\GoalListScreen::class)->name('platform.goals.list');
+    Route::screen('/create', \App\Orchid\Screens\Goal\GoalEditScreen::class)->name('platform.goals.create');
+    Route::screen('/{goal}/edit', \App\Orchid\Screens\Goal\GoalEditScreen::class)->name('platform.goals.edit');
 });
 
 Route::screen('main', \App\Orchid\Screens\MainScreen::class)->name('platform.main');
