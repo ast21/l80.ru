@@ -20,6 +20,7 @@
         "laravel/octane": "^1.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "opcodesio/log-viewer": "^1.6",
         "spiral/roadrunner": "^2.8.2"
     },
     "require-dev": {
