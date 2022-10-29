@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Orchid\Screens\Goal;
+namespace App\Orchid\Screens\Task;
 
-use App\Models\Goal;
-use App\Orchid\Layouts\GoalListLayout;
+use App\Models\Task;
+use App\Orchid\Layouts\TaskListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
 
-class GoalListScreen extends Screen
+class TaskListScreen extends Screen
 {
     /**
      * Query data.
@@ -19,7 +19,7 @@ class GoalListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'goals' => Goal::paginate(),
+            'tasks' => Task::paginate(),
         ];
     }
 
@@ -30,7 +30,7 @@ class GoalListScreen extends Screen
      */
     public function name(): ?string
     {
-        return __('Goals');
+        return __('Tasks');
     }
 
     /**
@@ -43,7 +43,7 @@ class GoalListScreen extends Screen
         return [
             Link::make('Добавить')
                 ->icon('plus')
-                ->route('platform.goals.create'),
+                ->route('platform.tasks.create'),
         ];
     }
 
@@ -55,13 +55,13 @@ class GoalListScreen extends Screen
     public function layout(): iterable
     {
         return [
-            GoalListLayout::class,
+            TaskListLayout::class,
         ];
     }
 
     public function remove(Request $request): void
     {
-        Goal::findOrFail($request->get('id'))->delete();
-        Toast::info('вопрос успешно удален');
+        Task::findOrFail($request->get('id'))->delete();
+        Toast::info('задача успешно удалена');
     }
 }

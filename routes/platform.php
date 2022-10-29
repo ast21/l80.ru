@@ -35,5 +35,10 @@ Route::group(['prefix' => 'goals'], function () {
     Route::screen('/create', \App\Orchid\Screens\Goal\GoalEditScreen::class)->name('platform.goals.create');
     Route::screen('/{goal}/edit', \App\Orchid\Screens\Goal\GoalEditScreen::class)->name('platform.goals.edit');
 });
+Route::group(['prefix' => 'tasks'], function () {
+    Route::screen('/', \App\Orchid\Screens\Task\TaskListScreen::class)->name('platform.tasks.list');
+    Route::screen('/create', \App\Orchid\Screens\Task\TaskEditScreen::class)->name('platform.tasks.create');
+    Route::screen('/{task}/edit', \App\Orchid\Screens\Task\TaskEditScreen::class)->name('platform.tasks.edit');
+});
 
 Route::screen('main', \App\Orchid\Screens\MainScreen::class)->name('platform.main');
