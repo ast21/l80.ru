@@ -60,6 +60,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Tasks'))
                 ->icon('check')
                 ->route('platform.tasks.list'),
+
+            Menu::make(__('Actions'))
+                ->icon('graph')
+                ->route('platform.actions.list'),
         ];
     }
 

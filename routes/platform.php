@@ -40,5 +40,10 @@ Route::group(['prefix' => 'tasks'], function () {
     Route::screen('/create', \App\Orchid\Screens\Task\TaskEditScreen::class)->name('platform.tasks.create');
     Route::screen('/{task}/edit', \App\Orchid\Screens\Task\TaskEditScreen::class)->name('platform.tasks.edit');
 });
+Route::group(['prefix' => 'actions'], function () {
+    Route::screen('/', \App\Orchid\Screens\Action\ActionListScreen::class)->name('platform.actions.list');
+    Route::screen('/create', \App\Orchid\Screens\Action\ActionEditScreen::class)->name('platform.actions.create');
+    Route::screen('/{action}/edit', \App\Orchid\Screens\Action\ActionEditScreen::class)->name('platform.actions.edit');
+});
 
 Route::screen('main', \App\Orchid\Screens\MainScreen::class)->name('platform.main');
