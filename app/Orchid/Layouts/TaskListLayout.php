@@ -20,7 +20,7 @@ class TaskListLayout extends Table
                 return Link::make($task->id)->route('platform.tasks.edit', $task->id);
             }),
             TD::make('name', 'Название')->render(fn(Task $task) => $task->name),
-            TD::make('goal_id', 'Цель')->width(300)->render(fn(Task $task) => $task->goal->name),
+            TD::make('goal_id', 'Цель')->render(fn(Task $task) => $task->goal->name),
             TD::make('active', 'Активен')->alignCenter()->width(100)->bool(),
             TD::make('edit', 'Действия')
                 ->alignRight()

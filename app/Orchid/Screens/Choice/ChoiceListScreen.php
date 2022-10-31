@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orchid\Screens;
+namespace App\Orchid\Screens\Choice;
 
 use App\Models\Choice;
 use Orchid\Screen\Actions\Link;
@@ -42,7 +42,7 @@ class ChoiceListScreen extends Screen
         return [
             Link::make('Добавить')
                 ->icon('plus')
-                ->route('platform.choices.edit')
+                ->route('platform.choices.create')
         ];
     }
 

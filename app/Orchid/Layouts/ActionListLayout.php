@@ -19,8 +19,8 @@ class ActionListLayout extends Table
             TD::make("id", '#')->alignCenter()->width(50)->render(function (Action $action) {
                 return Link::make($action->id)->route('platform.actions.edit', $action->id);
             }),
-            TD::make('goal_id', 'Цель')->width(300)->render(fn(Action $action) => $action->goal->name),
-            TD::make('task_id', 'Задача')->width(300)->render(fn(Action $action) => $action->task->name),
+            TD::make('goal_id', 'Цель')->render(fn(Action $action) => $action->goal->name),
+            TD::make('task_id', 'Задача')->render(fn(Action $action) => $action->task->name),
             TD::make('edit', 'Действия')
                 ->alignRight()
                 ->width(100)

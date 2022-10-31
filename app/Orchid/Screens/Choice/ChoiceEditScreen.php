@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Orchid\Screens;
+namespace App\Orchid\Screens\Choice;
 
 use App\Models\Choice;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Matrix;
-use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
@@ -48,12 +47,12 @@ class ChoiceEditScreen extends Screen
         return [
             Button::make('Добавить выбор')
                 ->icon('plus')
-                ->method('createOrUpdate')
+                ->method('save')
                 ->canSee(!$this->choice->exists),
 
             Button::make('Обновить')
                 ->icon('note')
-                ->method('createOrUpdate')
+                ->method('save')
                 ->canSee($this->choice->exists),
 
             Button::make('Удалить')
@@ -91,7 +90,7 @@ class ChoiceEditScreen extends Screen
         ];
     }
 
-    public function createOrUpdate(Choice $choice, Request $request)
+    public function save(Choice $choice, Request $request)
     {
         $request->validate([
             'choice' => ['required', 'array'],
