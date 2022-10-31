@@ -2,8 +2,11 @@
 
 namespace App\Orchid\Screens;
 
-use App\Models\Choice;
+use App\Models\Action;
+use App\Models\Goal;
 use App\Models\Quote;
+use App\Orchid\Layouts\ActionChartLayout;
+use Carbon\Carbon;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
@@ -16,7 +19,40 @@ class MainScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        $actions = Action::all();
+        $goals = Goal::orderBy('created_at')->get();
+        $dataset = [];
+        $labels = [];
+        $values = [];
+
+        $dates = [];
+        foreach (range(0, 29) as $number) {
+            $dates[] = Carbon::now()->addDays($number - 30);
+            $labels[] = 0;
+            $values[] = 0;
+        }
+
+        foreach ($goals as $goal) {
+            foreach ($dates as $key => $date) {
+                $labels[$key] = $date->format('d.m.Y');
+                $values[$key] = $actions
+                    ->where('goal_id', $goal->id)
+                    ->where('created_at', '>=', $date)
+                    ->where('created_at', '<', $date->addDays())
+                    ->count();
+                $date->addDays(-1);
+            }
+
+            $dataset[] = [
+                'name' => $goal->name,
+                'labels' => $labels,
+                'values' => $values,
+            ];
+        }
+
+        return [
+            'actions' => $dataset,
+        ];
     }
 
     /**
@@ -48,6 +84,7 @@ class MainScreen extends Screen
     {
         return [
             Layout::view('main', ['quote' => Quote::inRandomOrder()->limit(1)->first()]),
+            ActionChartLayout::make('actions', __('Actions')),
         ];
     }
 }
