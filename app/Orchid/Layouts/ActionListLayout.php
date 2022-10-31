@@ -21,6 +21,9 @@ class ActionListLayout extends Table
             }),
             TD::make('goal_id', 'Цель')->render(fn(Action $action) => $action->goal->name),
             TD::make('task_id', 'Задача')->render(fn(Action $action) => $action->task->name),
+            TD::make('created_at', 'Создано')->width(130)->render(
+                fn(Action $action) => $action->created_at->format('d.m.Y m:i')
+            ),
             TD::make('edit', 'Действия')
                 ->alignRight()
                 ->width(100)
