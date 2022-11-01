@@ -21,26 +21,20 @@ class MainScreen extends Screen
     {
         $actions = Action::all();
         $goals = Goal::orderBy('created_at')->get();
+        $days = 30;
         $dataset = [];
-        $labels = [];
-        $values = [];
-
-        $dates = [];
-        foreach (range(0, 29) as $number) {
-            $dates[] = Carbon::now()->addDays($number - 30);
-            $labels[] = 0;
-            $values[] = 0;
-        }
 
         foreach ($goals as $goal) {
-            foreach ($dates as $key => $date) {
-                $labels[$key] = $date->format('d.m.Y');
-                $values[$key] = $actions
+            $labels = [];
+            $values = [];
+            foreach (range(1, 30) as $num) {
+                $date = Carbon::now()->addDays($num - $days);
+                $labels[] = $date->format('d.m.Y');
+                $values[] = $actions
                     ->where('goal_id', $goal->id)
                     ->where('created_at', '>=', $date)
-                    ->where('created_at', '<', $date->addDays())
+                    ->where('created_at', '<', $date->addDay())
                     ->count();
-                $date->addDays(-1);
             }
 
             $dataset[] = [
