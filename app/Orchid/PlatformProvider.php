@@ -26,6 +26,11 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
+            Menu::make(__('Gifts'))
+                ->icon('gift')
+                ->route('platform.gf.gifts.list')
+                ->title('Gift Finder'),
+
             Menu::make(__('Users'))
                 ->icon('user')
                 ->route('platform.systems.users')

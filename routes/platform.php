@@ -17,6 +17,8 @@ use App\Orchid\Screens\Quote\QuoteListScreen;
 use App\Orchid\Screens\Quote\QuoteEditScreen;
 use App\Orchid\Screens\Task\TaskListScreen;
 use App\Orchid\Screens\Task\TaskEditScreen;
+use App\Orchid\Screens\GF\GiftListScreen;
+use App\Orchid\Screens\GF\GiftEditScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +63,11 @@ Route::group(['prefix' => 'actions'], function () {
     Route::screen('/', ActionListScreen::class)->name('platform.actions.list');
     Route::screen('/create', ActionEditScreen::class)->name('platform.actions.create');
     Route::screen('/{action}/edit', ActionEditScreen::class)->name('platform.actions.edit');
+});
+Route::group(['prefix' => 'gf'], function () {
+    Route::group(['prefix' => 'gifts'], function () {
+        Route::screen('/', GiftListScreen::class)->name('platform.gf.gifts.list');
+        Route::screen('/create', GiftEditScreen::class)->name('platform.gf.gifts.create');
+        Route::screen('/{action}/edit', GiftEditScreen::class)->name('platform.gf.gifts.edit');
+    });
 });
