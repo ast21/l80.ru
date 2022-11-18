@@ -12,37 +12,39 @@ use Orchid\Support\Facades\Layout;
 
 class HobbyEditScreen extends Screen
 {
-    public Hobby $hobby;
+    public Hobby $item;
+    private string $routeList = 'platform.gf.hobbies.list';
+    private string $name = 'хобби';
 
-    public function query(Hobby $hobby): iterable
+    public function query(Hobby $item): iterable
     {
         return [
-            'hobby' => $hobby,
+            'item' => $item,
         ];
     }
 
     public function name(): ?string
     {
-        return $this->hobby->exists ? 'Редактирование хобби' : 'Добавление хобби';
+        return $this->item->exists ? "Редактировать $this->name" : "Добавить $this->name";
     }
 
     public function commandBar(): iterable
     {
         return [
-            Button::make('Добавить хобби')
+            Button::make("Добавить $this->name")
                 ->icon('plus')
                 ->method('save')
-                ->canSee(!$this->hobby->exists),
+                ->canSee(!$this->item->exists),
 
             Button::make('Обновить')
                 ->icon('note')
                 ->method('save')
-                ->canSee($this->hobby->exists),
+                ->canSee($this->item->exists),
 
             Button::make('Удалить')
                 ->icon('trash')
                 ->method('remove')
-                ->canSee($this->hobby->exists),
+                ->canSee($this->item->exists),
         ];
     }
 
@@ -51,33 +53,33 @@ class HobbyEditScreen extends Screen
         return [
             Layout::rows([
                 Input::make('name')
-                    ->title("Название")
+                    ->title('Название')
                     ->required()
-                    ->placeholder('Название хобби')
-                    ->value($this->hobby->name),
+                    ->placeholder($this->name)
+                    ->value($this->item->name),
             ])
         ];
     }
 
-    public function save(Hobby $hobby, Request $request)
+    public function save(Hobby $item, Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
         ]);
 
-        $hobby->fill($validatedData)->save();
+        $item->fill($validatedData)->save();
 
-        Alert::info('Вы успешно добавили хобби.');
+        Alert::info("Вы успешно добавили $this->name.");
 
-        return redirect()->route('platform.gf.hobbies.list');
+        return redirect()->route($this->routeList);
     }
 
-    public function remove(Hobby $hobby)
+    public function remove(Hobby $item)
     {
-        $hobby->delete();
+        $item->delete();
 
-        Alert::info('Вы успешно удалили хобби.');
+        Alert::info("Вы успешно удалили $this->name.");
 
-        return redirect()->route('platform.gf.hobbies.list');
+        return redirect()->route($this->routeList);
     }
 }
