@@ -2,23 +2,25 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Route;
-use App\Orchid\Screens\MainScreen;
-use App\Orchid\Screens\InterpreterScreen;
-use App\Orchid\Screens\Action\ActionListScreen;
 use App\Orchid\Screens\Action\ActionEditScreen;
-use App\Orchid\Screens\Choice\ChoiceListScreen;
+use App\Orchid\Screens\Action\ActionListScreen;
 use App\Orchid\Screens\Choice\ChoiceEditScreen;
-use App\Orchid\Screens\FAQ\FAQListScreen;
+use App\Orchid\Screens\Choice\ChoiceListScreen;
 use App\Orchid\Screens\FAQ\FAQEditScreen;
-use App\Orchid\Screens\Goal\GoalListScreen;
-use App\Orchid\Screens\Goal\GoalEditScreen;
-use App\Orchid\Screens\Quote\QuoteListScreen;
-use App\Orchid\Screens\Quote\QuoteEditScreen;
-use App\Orchid\Screens\Task\TaskListScreen;
-use App\Orchid\Screens\Task\TaskEditScreen;
-use App\Orchid\Screens\GF\GiftListScreen;
+use App\Orchid\Screens\FAQ\FAQListScreen;
 use App\Orchid\Screens\GF\GiftEditScreen;
+use App\Orchid\Screens\GF\GiftListScreen;
+use App\Orchid\Screens\GF\HobbyEditScreen;
+use App\Orchid\Screens\GF\HobbyListScreen;
+use App\Orchid\Screens\Goal\GoalEditScreen;
+use App\Orchid\Screens\Goal\GoalListScreen;
+use App\Orchid\Screens\InterpreterScreen;
+use App\Orchid\Screens\MainScreen;
+use App\Orchid\Screens\Quote\QuoteEditScreen;
+use App\Orchid\Screens\Quote\QuoteListScreen;
+use App\Orchid\Screens\Task\TaskEditScreen;
+use App\Orchid\Screens\Task\TaskListScreen;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +71,10 @@ Route::group(['prefix' => 'gf'], function () {
         Route::screen('/', GiftListScreen::class)->name('platform.gf.gifts.list');
         Route::screen('/create', GiftEditScreen::class)->name('platform.gf.gifts.create');
         Route::screen('/{action}/edit', GiftEditScreen::class)->name('platform.gf.gifts.edit');
+    });
+    Route::group(['prefix' => 'hobbies'], function () {
+        Route::screen('/', HobbyListScreen::class)->name('platform.gf.hobbies.list');
+        Route::screen('/create', HobbyEditScreen::class)->name('platform.gf.hobbies.create');
+        Route::screen('/{action}/edit', HobbyEditScreen::class)->name('platform.gf.hobbies.edit');
     });
 });

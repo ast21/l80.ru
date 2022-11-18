@@ -10,6 +10,7 @@ class Hobby extends Model
     use HasFactory;
 
     protected $table = 'gf_hobbies';
+    protected $fillable = ['name'];
 
     public function gifts()
     {

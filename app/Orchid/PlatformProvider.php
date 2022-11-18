@@ -12,7 +12,7 @@ use Orchid\Screen\Actions\Menu;
 class PlatformProvider extends OrchidServiceProvider
 {
     /**
-     * @param  Dashboard  $dashboard
+     * @param Dashboard $dashboard
      */
     public function boot(Dashboard $dashboard): void
     {
@@ -30,6 +30,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('gift')
                 ->route('platform.gf.gifts.list')
                 ->title('Gift Finder'),
+
+            Menu::make(__('Hobbies'))
+                ->icon('hobby')
+                ->route('platform.gf.hobbies.list'),
 
             Menu::make(__('Users'))
                 ->icon('user')
