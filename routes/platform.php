@@ -12,6 +12,8 @@ use App\Orchid\Screens\GF\GiftEditScreen;
 use App\Orchid\Screens\GF\GiftListScreen;
 use App\Orchid\Screens\GF\HobbyEditScreen;
 use App\Orchid\Screens\GF\HobbyListScreen;
+use App\Orchid\Screens\GF\ShopEditScreen;
+use App\Orchid\Screens\GF\ShopListScreen;
 use App\Orchid\Screens\Goal\GoalEditScreen;
 use App\Orchid\Screens\Goal\GoalListScreen;
 use App\Orchid\Screens\InterpreterScreen;
@@ -76,5 +78,10 @@ Route::group(['prefix' => 'gf'], function () {
         Route::screen('/', HobbyListScreen::class)->name('platform.gf.hobbies.list');
         Route::screen('/create', HobbyEditScreen::class)->name('platform.gf.hobbies.create');
         Route::screen('/{action}/edit', HobbyEditScreen::class)->name('platform.gf.hobbies.edit');
+    });
+    Route::group(['prefix' => 'shops'], function () {
+        Route::screen('/', ShopListScreen::class)->name('platform.gf.shops.list');
+        Route::screen('/create', ShopEditScreen::class)->name('platform.gf.shops.create');
+        Route::screen('/{action}/edit', ShopEditScreen::class)->name('platform.gf.shops.edit');
     });
 });

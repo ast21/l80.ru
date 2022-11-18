@@ -10,4 +10,5 @@ class Shop extends Model
     use HasFactory;
 
     protected $table = 'gf_shops';
+    protected $fillable = ['name'];
 }
