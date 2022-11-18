@@ -15,37 +15,39 @@ use Orchid\Support\Facades\Layout;
 
 class GiftEditScreen extends Screen
 {
-    public Gift $gift;
+    public Gift $item;
+    private string $routeList = 'platform.gf.gifts.list';
+    private string $name = 'подарок';
 
-    public function query(Gift $gift): iterable
+    public function query(Gift $item): iterable
     {
         return [
-            'gift' => $gift,
+            'item' => $item,
         ];
     }
 
     public function name(): ?string
     {
-        return $this->gift->exists ? 'Редактирование подарка' : 'Добавление подарка';
+        return $this->item->exists ? "Редактировать $this->name" : "Добавить $this->name";
     }
 
     public function commandBar(): iterable
     {
         return [
-            Button::make('Добавить подарок')
+            Button::make("Добавить $this->name")
                 ->icon('plus')
                 ->method('save')
-                ->canSee(!$this->gift->exists),
+                ->canSee(!$this->item->exists),
 
             Button::make('Обновить')
                 ->icon('note')
                 ->method('save')
-                ->canSee($this->gift->exists),
+                ->canSee($this->item->exists),
 
             Button::make('Удалить')
                 ->icon('trash')
                 ->method('remove')
-                ->canSee($this->gift->exists),
+                ->canSee($this->item->exists),
         ];
     }
 
@@ -54,32 +56,32 @@ class GiftEditScreen extends Screen
         return [
             Layout::rows([
                 Input::make('name')
-                    ->title("Название")
+                    ->title('Название')
                     ->required()
-                    ->placeholder('Название подарка')
-                    ->value($this->gift->name),
+                    ->placeholder($this->name)
+                    ->value($this->item->name),
                 Select::make('gender')
                     ->options(Gender::toArray())
                     ->title('Пол')
-                    ->value($this->gift->gender)
+                    ->value($this->item->gender)
                     ->help('Выберите пол, для кого подойдет этот подарок'),
                 Input::make('age_start')
-                    ->title("Возраст от")
+                    ->title('Возраст от')
                     ->required()
-                    ->value($this->gift->age_start)
+                    ->value($this->item->age_start)
                     ->type('number')
                     ->help('Введите возраст, начиная с какого будет подходить подарок'),
                 Input::make('age_end')
-                    ->title("Возраст от")
+                    ->title('Возраст до')
                     ->required()
-                    ->value($this->gift->age_end)
+                    ->value($this->item->age_end)
                     ->type('number')
                     ->help('Введите возраст, до которого будет подходить подарок'),
             ])
         ];
     }
 
-    public function save(Gift $gift, Request $request)
+    public function save(Gift $item, Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -88,19 +90,19 @@ class GiftEditScreen extends Screen
             'age_end' => ['required', 'numeric', 'min:0', 'max:100'],
         ]);
 
-        $gift->fill($validatedData)->save();
+        $item->fill($validatedData)->save();
 
-        Alert::info('Вы успешно добавили подарок.');
+        Alert::info("Вы успешно добавили $this->name.");
 
-        return redirect()->route('platform.gf.gifts.list');
+        return redirect()->route($this->routeList);
     }
 
-    public function remove(Gift $gift)
+    public function remove(Gift $item)
     {
-        $gift->delete();
+        $item->delete();
 
-        Alert::info('Вы успешно удалили подарок.');
+        Alert::info("Вы успешно удалили $this->name.");
 
-        return redirect()->route('platform.gf.gifts.list');
+        return redirect()->route($this->routeList);
     }
 }
