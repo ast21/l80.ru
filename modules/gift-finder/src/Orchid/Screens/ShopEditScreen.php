@@ -1,25 +1,22 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Models\GF\Gift;
-use App\Models\GF\Product;
-use App\Models\GF\Shop;
 use Illuminate\Http\Request;
+use Modules\GiftFinder\Models\Shop;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
-class ProductEditScreen extends Screen
+class ShopEditScreen extends Screen
 {
-    public Product $item;
-    private string $name = 'продукт';
-    private string $routeList = 'platform.gf.products.list';
+    public Shop $item;
+    private string $name = 'магазин';
+    private string $routeList = 'platform.gf.shops.list';
 
-    public function query(Product $item): iterable
+    public function query(Shop $item): iterable
     {
         return [
             'item' => $item,
@@ -60,37 +57,14 @@ class ProductEditScreen extends Screen
                     ->required()
                     ->placeholder($this->name)
                     ->value($this->item->name),
-                Relation::make('gift_id')
-                    ->fromModel(Gift::class, 'name')
-                    ->title('Подарок')
-                    ->required()
-                    ->value($this->item->gift_id),
-                Relation::make('shop_id')
-                    ->fromModel(Shop::class, 'name')
-                    ->title('Магазин')
-                    ->required()
-                    ->value($this->item->shop_id),
-                Input::make('price')
-                    ->title('Стоимость')
-                    ->required()
-                    ->value($this->item->price)
-                    ->type('number')
-                    ->step(0.01),
-                Input::make('url')
-                    ->title('Ссылка')
-                    ->value($this->item->url),
             ])
         ];
     }
 
-    public function save(Product $item, Request $request)
+    public function save(Shop $item, Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'gift_id' => ['required', 'exists:gf_gifts,id'],
-            'shop_id' => ['required', 'exists:gf_shops,id'],
-            'price' => ['required', 'numeric'],
-            'url' => ['nullable', 'string', 'max:2000'],
         ]);
 
         $item->fill($validatedData)->save();
@@ -100,7 +74,7 @@ class ProductEditScreen extends Screen
         return redirect()->route($this->routeList);
     }
 
-    public function remove(Product $item)
+    public function remove(Shop $item)
     {
         $item->delete();
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Models\GF\Gift;
+use Modules\GiftFinder\Models\Hobby;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
@@ -11,22 +11,22 @@ use Orchid\Screen\TD;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
-class GiftListScreen extends Screen
+class HobbyListScreen extends Screen
 {
-    private string $name = 'подарок';
-    private string $routeEdit = 'platform.gf.gifts.edit';
-    private string $routeCreate = 'platform.gf.gifts.create';
+    private string $name = 'хобби';
+    private string $routeEdit = 'platform.gf.hobbies.edit';
+    private string $routeCreate = 'platform.gf.hobbies.create';
 
     public function query(): iterable
     {
         return [
-            'items' => Gift::orderByDesc('id')->paginate(),
+            'items' => Hobby::orderByDesc('id')->paginate(),
         ];
     }
 
     public function name(): ?string
     {
-        return __('Gifts');
+        return __('Hobbies');
     }
 
     public function commandBar(): iterable
@@ -42,20 +42,14 @@ class GiftListScreen extends Screen
     {
         return [
             Layout::table('items', [
-                TD::make("id", '#')->alignCenter()->width(50)->render(function (Gift $item) {
+                TD::make("id", '#')->alignCenter()->width(50)->render(function (Hobby $item) {
                     return Link::make($item->id)->route($this->routeEdit, $item->id);
                 }),
-                TD::make('name', 'Название')->render(fn(Gift $item) => $item->name),
-                TD::make('gender', 'Пол')->alignCenter()->width(100)
-                    ->render(fn(Gift $item) => $item->gender),
-                TD::make('age_start', 'От')->alignCenter()->width(100)
-                    ->render(fn(Gift $item) => $item->age_start),
-                TD::make('age_end', 'До')->alignCenter()->width(100)
-                    ->render(fn(Gift $item) => $item->age_end),
+                TD::make('name', 'Название')->render(fn(Hobby $item) => $item->name),
                 TD::make('edit', 'Действия')
                     ->alignRight()
                     ->width(100)
-                    ->render(function (Gift $item) {
+                    ->render(function (Hobby $item) {
                         return DropDown::make()
                             ->icon('options-vertical')
                             ->list([
@@ -73,7 +67,7 @@ class GiftListScreen extends Screen
         ];
     }
 
-    public function remove(Gift $item): void
+    public function remove(Hobby $item): void
     {
         $item->delete();
         Alert::info("Вы успешно удалили $this->name.");

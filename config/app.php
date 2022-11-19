@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -185,6 +185,11 @@ return [
         /*
          * Package Service Providers...
          */
+
+        /*
+         * Module Service Providers...
+         */
+        Modules\GiftFinder\GiftFinderServiceProvider::class,
 
         /*
          * Application Service Providers...

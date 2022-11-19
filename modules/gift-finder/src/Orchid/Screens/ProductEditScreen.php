@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Enums\Gender;
-use App\Models\GF\Gift;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Enum;
+use Modules\GiftFinder\Models\Gift;
+use Modules\GiftFinder\Models\Product;
+use Modules\GiftFinder\Models\Shop;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
-class GiftEditScreen extends Screen
+class ProductEditScreen extends Screen
 {
-    public Gift $item;
-    private string $routeList = 'platform.gf.gifts.list';
-    private string $name = 'подарок';
+    public Product $item;
+    private string $name = 'продукт';
+    private string $routeList = 'platform.gf.products.list';
 
-    public function query(Gift $item): iterable
+    public function query(Product $item): iterable
     {
         return [
             'item' => $item,
@@ -60,34 +60,37 @@ class GiftEditScreen extends Screen
                     ->required()
                     ->placeholder($this->name)
                     ->value($this->item->name),
-                Select::make('gender')
-                    ->options(Gender::toArray())
-                    ->title('Пол')
-                    ->value($this->item->gender)
-                    ->help('Выберите пол, для кого подойдет этот подарок'),
-                Input::make('age_start')
-                    ->title('Возраст от')
+                Relation::make('gift_id')
+                    ->fromModel(Gift::class, 'name')
+                    ->title('Подарок')
                     ->required()
-                    ->value($this->item->age_start)
-                    ->type('number')
-                    ->help('Введите возраст, начиная с какого будет подходить подарок'),
-                Input::make('age_end')
-                    ->title('Возраст до')
+                    ->value($this->item->gift_id),
+                Relation::make('shop_id')
+                    ->fromModel(Shop::class, 'name')
+                    ->title('Магазин')
                     ->required()
-                    ->value($this->item->age_end)
+                    ->value($this->item->shop_id),
+                Input::make('price')
+                    ->title('Стоимость')
+                    ->required()
+                    ->value($this->item->price)
                     ->type('number')
-                    ->help('Введите возраст, до которого будет подходить подарок'),
+                    ->step(0.01),
+                Input::make('url')
+                    ->title('Ссылка')
+                    ->value($this->item->url),
             ])
         ];
     }
 
-    public function save(Gift $item, Request $request)
+    public function save(Product $item, Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'gender' => ['required', new Enum(Gender::class)],
-            'age_start' => ['required', 'numeric', 'min:0', 'max:100'],
-            'age_end' => ['required', 'numeric', 'min:0', 'max:100'],
+            'gift_id' => ['required', 'exists:gf_gifts,id'],
+            'shop_id' => ['required', 'exists:gf_shops,id'],
+            'price' => ['required', 'numeric'],
+            'url' => ['nullable', 'string', 'max:2000'],
         ]);
 
         $item->fill($validatedData)->save();
@@ -97,7 +100,7 @@ class GiftEditScreen extends Screen
         return redirect()->route($this->routeList);
     }
 
-    public function remove(Gift $item)
+    public function remove(Product $item)
     {
         $item->delete();
 

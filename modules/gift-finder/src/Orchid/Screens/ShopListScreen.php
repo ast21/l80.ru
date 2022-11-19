@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Models\GF\Hobby;
+use Modules\GiftFinder\Models\Shop;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
@@ -11,22 +11,22 @@ use Orchid\Screen\TD;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
-class HobbyListScreen extends Screen
+class ShopListScreen extends Screen
 {
-    private string $name = 'хобби';
-    private string $routeEdit = 'platform.gf.hobbies.edit';
-    private string $routeCreate = 'platform.gf.hobbies.create';
+    private string $name = 'магазин';
+    private string $routeEdit = 'platform.gf.shops.edit';
+    private string $routeCreate = 'platform.gf.shops.create';
 
     public function query(): iterable
     {
         return [
-            'items' => Hobby::orderByDesc('id')->paginate(),
+            'items' => Shop::orderByDesc('id')->paginate(),
         ];
     }
 
     public function name(): ?string
     {
-        return __('Hobbies');
+        return __('Shops');
     }
 
     public function commandBar(): iterable
@@ -42,14 +42,14 @@ class HobbyListScreen extends Screen
     {
         return [
             Layout::table('items', [
-                TD::make("id", '#')->alignCenter()->width(50)->render(function (Hobby $item) {
+                TD::make("id", '#')->alignCenter()->width(50)->render(function (Shop $item) {
                     return Link::make($item->id)->route($this->routeEdit, $item->id);
                 }),
-                TD::make('name', 'Название')->render(fn(Hobby $item) => $item->name),
+                TD::make('name', 'Название')->render(fn(Shop $item) => $item->name),
                 TD::make('edit', 'Действия')
                     ->alignRight()
                     ->width(100)
-                    ->render(function (Hobby $item) {
+                    ->render(function (Shop $item) {
                         return DropDown::make()
                             ->icon('options-vertical')
                             ->list([
@@ -67,7 +67,7 @@ class HobbyListScreen extends Screen
         ];
     }
 
-    public function remove(Hobby $item): void
+    public function remove(Shop $item): void
     {
         $item->delete();
         Alert::info("Вы успешно удалили $this->name.");

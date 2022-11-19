@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\GF;
+namespace Modules\GiftFinder\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Models\GF\Product;
+use Modules\GiftFinder\Models\Product;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;

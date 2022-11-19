@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Models\GF\Shop;
 use Illuminate\Http\Request;
+use Modules\GiftFinder\Models\Hobby;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
-class ShopEditScreen extends Screen
+class HobbyEditScreen extends Screen
 {
-    public Shop $item;
-    private string $name = 'магазин';
-    private string $routeList = 'platform.gf.shops.list';
+    public Hobby $item;
+    private string $routeList = 'platform.gf.hobbies.list';
+    private string $name = 'хобби';
 
-    public function query(Shop $item): iterable
+    public function query(Hobby $item): iterable
     {
         return [
             'item' => $item,
@@ -61,7 +61,7 @@ class ShopEditScreen extends Screen
         ];
     }
 
-    public function save(Shop $item, Request $request)
+    public function save(Hobby $item, Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -74,7 +74,7 @@ class ShopEditScreen extends Screen
         return redirect()->route($this->routeList);
     }
 
-    public function remove(Shop $item)
+    public function remove(Hobby $item)
     {
         $item->delete();
 

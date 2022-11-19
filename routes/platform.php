@@ -8,14 +8,6 @@ use App\Orchid\Screens\Choice\ChoiceEditScreen;
 use App\Orchid\Screens\Choice\ChoiceListScreen;
 use App\Orchid\Screens\FAQ\FAQEditScreen;
 use App\Orchid\Screens\FAQ\FAQListScreen;
-use App\Orchid\Screens\GF\GiftEditScreen;
-use App\Orchid\Screens\GF\GiftListScreen;
-use App\Orchid\Screens\GF\HobbyEditScreen;
-use App\Orchid\Screens\GF\HobbyListScreen;
-use App\Orchid\Screens\GF\ProductEditScreen;
-use App\Orchid\Screens\GF\ProductListScreen;
-use App\Orchid\Screens\GF\ShopEditScreen;
-use App\Orchid\Screens\GF\ShopListScreen;
 use App\Orchid\Screens\Goal\GoalEditScreen;
 use App\Orchid\Screens\Goal\GoalListScreen;
 use App\Orchid\Screens\InterpreterScreen;
@@ -69,26 +61,4 @@ Route::group(['prefix' => 'actions'], function () {
     Route::screen('/', ActionListScreen::class)->name('platform.actions.list');
     Route::screen('/create', ActionEditScreen::class)->name('platform.actions.create');
     Route::screen('/{action}/edit', ActionEditScreen::class)->name('platform.actions.edit');
-});
-Route::group(['prefix' => 'gf'], function () {
-    Route::group(['prefix' => 'gifts'], function () {
-        Route::screen('/', GiftListScreen::class)->name('platform.gf.gifts.list');
-        Route::screen('/create', GiftEditScreen::class)->name('platform.gf.gifts.create');
-        Route::screen('/{action}/edit', GiftEditScreen::class)->name('platform.gf.gifts.edit');
-    });
-    Route::group(['prefix' => 'hobbies'], function () {
-        Route::screen('/', HobbyListScreen::class)->name('platform.gf.hobbies.list');
-        Route::screen('/create', HobbyEditScreen::class)->name('platform.gf.hobbies.create');
-        Route::screen('/{action}/edit', HobbyEditScreen::class)->name('platform.gf.hobbies.edit');
-    });
-    Route::group(['prefix' => 'shops'], function () {
-        Route::screen('/', ShopListScreen::class)->name('platform.gf.shops.list');
-        Route::screen('/create', ShopEditScreen::class)->name('platform.gf.shops.create');
-        Route::screen('/{action}/edit', ShopEditScreen::class)->name('platform.gf.shops.edit');
-    });
-    Route::group(['prefix' => 'products'], function () {
-        Route::screen('/', ProductListScreen::class)->name('platform.gf.products.list');
-        Route::screen('/create', ProductEditScreen::class)->name('platform.gf.products.create');
-        Route::screen('/{action}/edit', ProductEditScreen::class)->name('platform.gf.products.edit');
-    });
 });

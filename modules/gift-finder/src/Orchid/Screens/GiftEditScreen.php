@@ -1,22 +1,25 @@
 <?php
 
-namespace App\Orchid\Screens\GF;
+namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Models\GF\Hobby;
+use App\Enums\Gender;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Enum;
+use Modules\GiftFinder\Models\Gift;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
-class HobbyEditScreen extends Screen
+class GiftEditScreen extends Screen
 {
-    public Hobby $item;
-    private string $routeList = 'platform.gf.hobbies.list';
-    private string $name = 'хобби';
+    public Gift $item;
+    private string $routeList = 'platform.gf.gifts.list';
+    private string $name = 'подарок';
 
-    public function query(Hobby $item): iterable
+    public function query(Gift $item): iterable
     {
         return [
             'item' => $item,
@@ -57,14 +60,34 @@ class HobbyEditScreen extends Screen
                     ->required()
                     ->placeholder($this->name)
                     ->value($this->item->name),
+                Select::make('gender')
+                    ->options(Gender::toArray())
+                    ->title('Пол')
+                    ->value($this->item->gender)
+                    ->help('Выберите пол, для кого подойдет этот подарок'),
+                Input::make('age_start')
+                    ->title('Возраст от')
+                    ->required()
+                    ->value($this->item->age_start)
+                    ->type('number')
+                    ->help('Введите возраст, начиная с какого будет подходить подарок'),
+                Input::make('age_end')
+                    ->title('Возраст до')
+                    ->required()
+                    ->value($this->item->age_end)
+                    ->type('number')
+                    ->help('Введите возраст, до которого будет подходить подарок'),
             ])
         ];
     }
 
-    public function save(Hobby $item, Request $request)
+    public function save(Gift $item, Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', new Enum(Gender::class)],
+            'age_start' => ['required', 'numeric', 'min:0', 'max:100'],
+            'age_end' => ['required', 'numeric', 'min:0', 'max:100'],
         ]);
 
         $item->fill($validatedData)->save();
@@ -74,7 +97,7 @@ class HobbyEditScreen extends Screen
         return redirect()->route($this->routeList);
     }
 
-    public function remove(Hobby $item)
+    public function remove(Gift $item)
     {
         $item->delete();
 
