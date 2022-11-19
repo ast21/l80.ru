@@ -26,61 +26,78 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            Menu::make(__('Gifts'))
-                ->icon('gift')
-                ->route('platform.gf.gifts.list')
-                ->title('Gift Finder'),
-
-            Menu::make(__('Hobbies'))
-                ->icon('hobby')
-                ->route('platform.gf.hobbies.list'),
-
-            Menu::make(__('Shops'))
-                ->icon('shops')
-                ->route('platform.gf.shops.list'),
-
-            Menu::make(__('Products'))
-                ->icon('products')
-                ->route('platform.gf.products.list'),
-
+            // Access rights
             Menu::make(__('Users'))
+                ->title(__('Access rights'))
                 ->icon('user')
                 ->route('platform.systems.users')
-                ->permission('platform.systems.users')
-                ->title(__('Access rights')),
+                ->permission('platform.systems.users'),
 
             Menu::make(__('Roles'))
                 ->icon('lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
 
-            Menu::make(__('PHP Interpreter'))
-                ->icon('code')
-                ->route('platform.interpreter'),
+            // Gift Finder
+            Menu::make(__('Gifts'))
+                ->title('Gift Finder')
+                ->icon('gift')
+                ->route('platform.gf.gifts.list')
+                ->permission('platform.gf'),
 
+            Menu::make(__('Hobbies'))
+                ->icon('hobby')
+                ->route('platform.gf.hobbies.list')
+                ->permission('platform.gf'),
+
+            Menu::make(__('Shops'))
+                ->icon('shops')
+                ->route('platform.gf.shops.list')
+                ->permission('platform.gf'),
+
+            Menu::make(__('Products'))
+                ->icon('products')
+                ->route('platform.gf.products.list')
+                ->permission('platform.gf'),
+
+            // l80
             Menu::make(__('Choices'))
+                ->title('l80')
                 ->icon('layers')
-                ->route('platform.choices.list'),
+                ->route('platform.choices.list')
+                ->permission('platform.l80'),
 
             Menu::make(__('Quotes'))
                 ->icon('quote')
-                ->route('platform.quotes.list'),
+                ->route('platform.quotes.list')
+                ->permission('platform.l80'),
 
             Menu::make(__('FAQ'))
                 ->icon('question')
-                ->route('platform.faqs.list'),
+                ->route('platform.faqs.list')
+                ->permission('platform.l80'),
 
             Menu::make(__('Goals'))
                 ->icon('target')
-                ->route('platform.goals.list'),
+                ->route('platform.goals.list')
+                ->permission('platform.l80'),
 
             Menu::make(__('Tasks'))
                 ->icon('check')
-                ->route('platform.tasks.list'),
+                ->route('platform.tasks.list')
+                ->permission('platform.l80'),
 
             Menu::make(__('Actions'))
                 ->icon('graph')
-                ->route('platform.actions.list'),
+                ->route('platform.actions.list')
+                ->permission('platform.l80'),
+
+            // Tools
+            Menu::make(__('PHP Interpreter'))
+                ->title('Tools')
+                ->icon('code')
+                ->route('platform.interpreter')
+                ->permission('platform.tools'),
         ];
     }
 
@@ -105,6 +122,12 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
+
+            ItemPermission::group(__('L80'))
+                ->addPermission('platform.l80', __('L80')),
+
+            ItemPermission::group(__('Tools'))
+                ->addPermission('platform.tools', __('Tools')),
         ];
     }
 }
