@@ -39,6 +39,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('shops')
                 ->route('platform.gf.shops.list'),
 
+            Menu::make(__('Products'))
+                ->icon('products')
+                ->route('platform.gf.products.list'),
+
             Menu::make(__('Users'))
                 ->icon('user')
                 ->route('platform.systems.users')

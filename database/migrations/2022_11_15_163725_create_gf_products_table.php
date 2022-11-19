@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -19,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('shop_id')->nullable();
             $table->string('name');
             $table->double('price')->nullable();
-            $table->string('url')->nullable();
+            $table->string('url', 2000)->nullable();
             $table->timestamps();
         });
     }

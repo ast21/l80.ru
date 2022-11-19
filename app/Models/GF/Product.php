@@ -10,6 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $table = 'gf_products';
+    protected $fillable = ['name', 'gift_id', 'shop_id', 'price', 'url'];
 
     public function gift()
     {
