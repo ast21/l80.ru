@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens;
 
 use App\Models\Quote;
+use App\Orchid\Fields\Cmd;
 use App\Orchid\Layouts\ActionChartLayout;
 use App\Services\ActionService;
 use Orchid\Screen\Screen;
@@ -54,6 +55,12 @@ class MainScreen extends Screen
     public function layout(): iterable
     {
         return [
+            Layout::rows([
+                Cmd::make('cmd')
+                    ->title('Личный поисковик')
+                    ->id('cmd-input')
+                    ->style('max-width: 100%;')
+            ]),
             Layout::view('main', ['quote' => Quote::inRandomOrder()->limit(1)->first()]),
             ActionChartLayout::make('actions', __('Actions')),
         ];

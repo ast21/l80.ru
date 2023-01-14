@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/interpreter/exec', [\App\Http\Controllers\InterpreterController::class, 'exec']);
+Route::group(['prefix' => '/one'], function () {
+    Route::post('cmd/exec', [\App\Http\Controllers\Api\CmdController::class, 'exec']);
+});
