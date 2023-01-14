@@ -61,7 +61,7 @@ var _default = /*#__PURE__*/function (_window$Controller) {
       var data = JSON.stringify({
         'command': this.commandValue
       });
-      axios.post('/api/one/cmd/exec', data, config).then(function (res) {
+      axios.post('/cmd', data, config).then(function (res) {
         _this.resultTarget.textContent = res.data.data;
       });
     }

@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/interpreter/exec', [\App\Http\Controllers\InterpreterController::class, 'exec']);
+Route::post('/', [\App\Http\Controllers\Api\CmdController::class, 'exec']);

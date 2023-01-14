@@ -44,6 +44,10 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\ForceJsonResponse::class,
         ],
+
+        'cmd' => [
+            \App\Http\Middleware\ForceJsonResponse::class,
+        ],
     ];
 
     /**

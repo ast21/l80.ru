@@ -17,7 +17,7 @@ export default class extends window.Controller {
             'command': this.commandValue,
         })
 
-        axios.post('/api/one/cmd/exec', data, config)
+        axios.post('/cmd', data, config)
             .then(res => {
                 this.resultTarget.textContent = res.data.data
             })
