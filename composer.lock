@@ -4,46 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "396051d7de9360ce8ba10a35561ff31b",
+    "content-hash": "8b204904ced5fd074a02b4e5585938f9",
     "packages": [
         {
             "name": "admin-kit/core",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ast21/core",
-                "reference": "eb76d952c525fd8f3911349daaf34eb74430a50d"
+                "url": "https://github.com/admin-kit/core.git",
+                "reference": "4f250636043e42c2e05d40153be1294b7b2a89b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/admin-kit/core/zipball/4f250636043e42c2e05d40153be1294b7b2a89b2",
+                "reference": "4f250636043e42c2e05d40153be1294b7b2a89b2",
+                "shasum": ""
             },
             "require": {
-                "orchid/platform": "^13.6"
+                "illuminate/contracts": "^9.0",
+                "orchid/platform": "^13.6",
+                "php": "^8.1"
             },
             "require-dev": {
-                "orchestra/testbench": "^7.0"
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
                         "AdminKit\\Core\\CoreServiceProvider"
-                    ]
+                    ],
+                    "aliases": {
+                        "Core": "AdminKit\\Core\\Facades\\Core"
+                    }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "AdminKit\\Core\\": "src/"
+                    "AdminKit\\Core\\": "src",
+                    "AdminKit\\Core\\Database\\Factories\\": "database/factories"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Anastas Mironov",
-                    "email": "ast@l80.ru"
+                    "email": "ast@l80.ru",
+                    "role": "Developer"
                 }
             ],
-            "description": "Admin-Kit",
-            "time": "2022-10-31T17:22:10+00:00"
+            "description": "Admin-Kit Core Package",
+            "homepage": "https://github.com/admin-kit/core",
+            "keywords": [
+                "admin-kit",
+                "core",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/admin-kit/core/issues",
+                "source": "https://github.com/admin-kit/core/tree/v1.1.0"
+            },
+            "time": "2023-01-15T19:27:38+00:00"
         },
         {
             "name": "brick/math",
@@ -10033,7 +10066,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.2"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

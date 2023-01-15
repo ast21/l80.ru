@@ -48,7 +48,7 @@ return [
     */
 
     'middleware' => [
-        'public'  => ['web'],
+        'public' => ['web'],
         'private' => ['web', 'platform'],
     ],
 
@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'auth'  => true,
+    'auth' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'index' => 'platform.main',
+    'index' => 'platform.systems.users',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,7 +110,7 @@ return [
 
     'resource' => [
         'stylesheets' => [],
-        'scripts'     => [
+        'scripts' => [
             '/js/dashboard.js',
         ],
     ],
@@ -130,8 +130,8 @@ return [
     */
 
     'template' => [
-        'header' => null,
-        'footer' => null,
+        'header' => 'admin-kit::header',
+        'footer' => 'admin-kit::footer',
     ],
 
     /*
@@ -144,7 +144,7 @@ return [
     */
 
     'attachment' => [
-        'disk'      => 'public',
+        'disk' => env('FILESYSTEM_DISK', 'public'),
         'generator' => \Orchid\Attachment\Engines\Generator::class,
     ],
 
@@ -177,7 +177,7 @@ return [
     */
 
     'notifications' => [
-        'enabled'  => true,
+        'enabled' => true,
         'interval' => 60,
     ],
 
@@ -208,7 +208,7 @@ return [
     */
 
     'turbo' => [
-        'cache' => false
+        'cache' => false,
     ],
 
     /*
@@ -238,5 +238,5 @@ return [
     */
 
     'provider' => \App\Orchid\PlatformProvider::class,
-
+    /** @phpstan-ignore-line */
 ];
