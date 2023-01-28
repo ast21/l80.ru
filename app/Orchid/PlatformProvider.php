@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid;
 
+use Modules\GenderParty\Models\Vote;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -37,6 +38,13 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
+
+            // Gender Party
+            Menu::make(__(Vote::NAME_PLURAL))
+                ->title('Gender Party')
+                ->icon(Vote::ICON)
+                ->route(Vote::ROUTE_LIST)
+                ->permission(Vote::PERMISSION),
 
             // Gift Finder
             Menu::make(__('Gifts'))
@@ -98,6 +106,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('code')
                 ->route('platform.interpreter')
                 ->permission('platform.tools'),
+
+            ...$this->registerMenuFromPackages(),
         ];
     }
 
@@ -129,5 +139,27 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('Tools'))
                 ->addPermission('platform.tools', __('Tools')),
         ];
+    }
+
+    public function registerMenuFromPackages(): array
+    {
+        $menus = [
+            Menu::make()->title(__('Modules')),
+        ];
+
+        foreach (config('admin-kit.packages') as $package) {
+            $instance = $package['instance'] ?? null;
+            if (isset($instance)
+                && defined("$instance::NAME")
+                && defined("$instance::ICON")
+                && defined("$instance::ROUTE_LIST")
+            ) {
+                $menus[] = Menu::make(__($instance::NAME))
+                    ->icon($instance::ICON)
+                    ->route($instance::ROUTE_LIST);
+            }
+        }
+
+        return $menus;
     }
 }

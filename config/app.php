@@ -190,6 +190,7 @@ return [
          * Module Service Providers...
          */
         Modules\GiftFinder\GiftFinderServiceProvider::class,
+        Modules\GenderParty\GenderPartyServiceProvider::class,
 
         /*
          * Application Service Providers...
