@@ -10,7 +10,7 @@ class VoteController extends Controller
 {
     public function index()
     {
-        $votes = Vote::query()->limit(4)->get();
+        $votes = Vote::query()->orderBy('id', 'desc')->limit(4)->get();
         return VoteResource::collection($votes);
     }
 
