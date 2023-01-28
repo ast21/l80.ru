@@ -20,6 +20,10 @@ class GenderPartyServiceProvider extends ServiceProvider
             ->middleware(config('platform.middleware.private'))
             ->group(__DIR__ . '/../routes/platform.php');
 
+        Route::middleware('api')
+            ->prefix('api/gp')
+            ->group(__DIR__ . '/../routes/api.php');
+
         // permissions
         $permissions = ItemPermission::group('Gender Party')
             ->addPermission(Vote::PERMISSION, 'Votes');
