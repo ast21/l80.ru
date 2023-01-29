@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b25d8ddc1186144e46c6d9726e03114",
+    "content-hash": "4ab30556ff25d064b836b52ecda6fb46",
     "packages": [
         {
             "name": "admin-kit/core",
@@ -83,16 +83,16 @@
         },
         {
             "name": "admin-kit/directories",
-            "version": "v1.0.4",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/admin-kit/directories.git",
-                "reference": "7c0ef3cdaa2c6059805345abb303e89729fd5f7f"
+                "reference": "69f4d5958edb51bfd61d3353bdcc09c16e2cbc67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/admin-kit/directories/zipball/7c0ef3cdaa2c6059805345abb303e89729fd5f7f",
-                "reference": "7c0ef3cdaa2c6059805345abb303e89729fd5f7f",
+                "url": "https://api.github.com/repos/admin-kit/directories/zipball/69f4d5958edb51bfd61d3353bdcc09c16e2cbc67",
+                "reference": "69f4d5958edb51bfd61d3353bdcc09c16e2cbc67",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,9 @@
             ],
             "support": {
                 "issues": "https://github.com/admin-kit/directories/issues",
-                "source": "https://github.com/admin-kit/directories/tree/v1.0.4"
+                "source": "https://github.com/admin-kit/directories/tree/v1.1.0"
             },
-            "time": "2023-01-27T22:11:55+00:00"
+            "time": "2023-01-29T13:47:49+00:00"
         },
         {
             "name": "brick/math",

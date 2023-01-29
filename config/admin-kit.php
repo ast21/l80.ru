@@ -8,8 +8,17 @@ return [
         'directories' => [
             // https://github.com/admin-kit/directories/blob/1.x/config/directories.php
             'models' => [
-                'Gender' => 'Gender',
-                'Test' => 'Test',
+                [
+                    'name' => 'Gender',
+                    'title' => 'Gender',
+                ],
+            ],
+            'properties' => [
+                [
+                    'key' => 'color',
+                    'title' => 'Color',
+                    'required' => false,
+                ]
             ],
         ],
     ],
