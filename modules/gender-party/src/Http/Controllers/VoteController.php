@@ -3,6 +3,7 @@
 namespace Modules\GenderParty\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Modules\GenderParty\Http\Resources\VoteResource;
 use Modules\GenderParty\Models\Vote;
 
@@ -18,7 +19,11 @@ class VoteController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'gender_id' => ['required', 'integer', 'exists:directories,id'],
+            'gender_id' => [
+                'required',
+                'integer',
+                Rule::exists('directories', 'id')->where(fn($query) => $query->where('type', 'Gender'))
+            ],
         ]);
 
         Vote::create($validated);

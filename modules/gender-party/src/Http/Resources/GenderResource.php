@@ -12,6 +12,7 @@ class GenderResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'color' => $this->getProperty('color'),
+            'code' => $this->getProperty('code'),
             'votes_count' => $this->whenHas('votes_count'),
         ];
     }

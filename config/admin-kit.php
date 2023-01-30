@@ -18,7 +18,12 @@ return [
                     'key' => 'color',
                     'title' => 'Color',
                     'required' => false,
-                ]
+                ],
+                [
+                    'key' => 'code',
+                    'title' => 'Code',
+                    'required' => false,
+                ],
             ],
         ],
     ],
