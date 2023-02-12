@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/', [\App\Http\Controllers\Api\CmdController::class, 'exec']);
+Route::post('/', [\App\Containers\LegacySection\App\Http\Controllers\Api\CmdController::class, 'exec']);

@@ -237,6 +237,6 @@ return [
     |
     */
 
-    'provider' => \App\Orchid\PlatformProvider::class,
+    'provider' => \App\Containers\LegacySection\App\Orchid\PlatformProvider::class,
     /** @phpstan-ignore-line */
 ];

@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('choice', [\App\Http\Controllers\ChoiceController::class, 'index'])->name('choice.index');
+Route::get('choice', [\App\Containers\LegacySection\App\Http\Controllers\ChoiceController::class, 'index'])->name(
+    'choice.index'
+);

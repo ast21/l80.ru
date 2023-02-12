@@ -2,7 +2,7 @@
 
 namespace Modules\GiftFinder\Orchid\Screens;
 
-use App\Enums\Gender;
+use App\Containers\LegacySection\App\Enums\Gender;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Enum;
 use Modules\GiftFinder\Models\Gift;

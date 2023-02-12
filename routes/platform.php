@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\Action\ActionEditScreen;
-use App\Orchid\Screens\Action\ActionListScreen;
-use App\Orchid\Screens\Choice\ChoiceEditScreen;
-use App\Orchid\Screens\Choice\ChoiceListScreen;
-use App\Orchid\Screens\FAQ\FAQEditScreen;
-use App\Orchid\Screens\FAQ\FAQListScreen;
-use App\Orchid\Screens\Goal\GoalEditScreen;
-use App\Orchid\Screens\Goal\GoalListScreen;
-use App\Orchid\Screens\InterpreterScreen;
-use App\Orchid\Screens\MainScreen;
-use App\Orchid\Screens\Quote\QuoteEditScreen;
-use App\Orchid\Screens\Quote\QuoteListScreen;
-use App\Orchid\Screens\Task\TaskEditScreen;
-use App\Orchid\Screens\Task\TaskListScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Action\ActionEditScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Action\ActionListScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Choice\ChoiceEditScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Choice\ChoiceListScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\FAQ\FAQEditScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\FAQ\FAQListScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Goal\GoalEditScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Goal\GoalListScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\InterpreterScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\MainScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Quote\QuoteEditScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Quote\QuoteListScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Task\TaskEditScreen;
+use App\Containers\LegacySection\App\Orchid\Screens\Task\TaskListScreen;
 use Illuminate\Support\Facades\Route;
 
 /*
