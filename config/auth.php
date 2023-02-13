@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin-kit' => [
+            'driver' => 'session',
+            'provider' => 'admin_users',
+        ],
     ],
 
     /*
@@ -63,6 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => \App\Containers\LegacySection\App\Models\User::class,
+        ],
+
+        'admin_users' => [
+            'driver' => 'eloquent',
+            'model' => \App\Containers\LegacySection\App\Models\AdminUser::class,
         ],
 
         // 'users' => [
