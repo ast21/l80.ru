@@ -2,6 +2,7 @@
 
 namespace App\Containers\LegacySection\App\Models;
 
+use Database\Factories\ActionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Metrics\Chartable;
@@ -21,5 +22,10 @@ class Action extends Model
     public function task()
     {
         return $this->belongsTo(Task::class);
+    }
+
+    protected static function newFactory()
+    {
+        return ActionFactory::new();
     }
 }
