@@ -193,6 +193,7 @@ return [
 
     'search' => [
         \App\Containers\LegacySection\App\Models\AdminUser::class,
+        \App\Containers\LegacySection\App\Models\Goal::class,
     ],
 
     /*
