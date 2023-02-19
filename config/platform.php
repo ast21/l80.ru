@@ -192,7 +192,7 @@ return [
     */
 
     'search' => [
-        // \App\Models\User::class
+        \App\Containers\LegacySection\App\Models\AdminUser::class,
     ],
 
     /*

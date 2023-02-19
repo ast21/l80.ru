@@ -3,9 +3,12 @@
 namespace App\Containers\LegacySection\App\Models;
 
 use AdminKit\Core\Models\AdminUser as Authenticatable;
+use Laravel\Scout\Searchable;
 
 class AdminUser extends Authenticatable
 {
+    use Searchable;
+
     /**
      * The attributes that are mass assignable.
      *
