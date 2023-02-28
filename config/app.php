@@ -196,7 +196,6 @@ return [
          * Application Service Providers...
          */
         App\Ship\Providers\ShipProvider::class,
-
         App\Containers\LegacySection\App\Providers\MainServiceProvider::class,
     ],
 

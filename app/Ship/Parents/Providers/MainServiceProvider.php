@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
 abstract class MainServiceProvider extends LaravelServiceProvider
 {
+    public array $serviceProviders = [
+        //
+    ];
+
     /**
      * Perform post-registration booting of services.
      */
@@ -19,6 +23,20 @@ abstract class MainServiceProvider extends LaravelServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->registerProviders();
+    }
+
+    /**
+     * Register provider.
+     *
+     * @return $this
+     */
+    public function registerProviders(): self
+    {
+        foreach ($this->serviceProviders as $provider) {
+            $this->app->register($provider);
+        }
+
+        return $this;
     }
 }

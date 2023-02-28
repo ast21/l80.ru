@@ -3,7 +3,7 @@
 namespace App\Ship\Parents\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as LaravelRouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
  *
  * A.K.A. app/Providers/RouteServiceProvider.php
  */
-abstract class RouteServiceProvider extends ServiceProvider
+abstract class RouteServiceProvider extends LaravelRouteServiceProvider
 {
     /**
      * The path to the "home" route for your application.

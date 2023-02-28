@@ -225,19 +225,4 @@ return [
     */
 
     'fallback' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Service Provider
-    |--------------------------------------------------------------------------
-    |
-    | This value is a class namespace of the platform's service provider. You
-    | can override it to define a custom namespace. This may be useful if you
-    | want to place Orchid's service provider in a location different to
-    | "app/Orchid".
-    |
-    */
-
-    'provider' => \App\Containers\LegacySection\App\Orchid\PlatformProvider::class,
-    /** @phpstan-ignore-line */
 ];

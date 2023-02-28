@@ -8,18 +8,6 @@ use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 class ShipProvider extends ParentMainServiceProvider
 {
     /**
-     * Register any Service Providers on the Ship layer (including third party packages).
-     */
-    public array $serviceProviders = [
-        RouteServiceProvider::class,
-    ];
-
-    /**
-     * Register any Alias on the Ship layer (including third party packages).
-     */
-    protected array $aliases = [];
-
-    /**
      * Bootstrap any application services.
      */
     public function boot(): void
