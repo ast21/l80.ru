@@ -10,6 +10,10 @@ abstract class MainServiceProvider extends LaravelServiceProvider
         //
     ];
 
+    public array $commands = [
+        //
+    ];
+
     /**
      * Perform post-registration booting of services.
      */
@@ -23,7 +27,9 @@ abstract class MainServiceProvider extends LaravelServiceProvider
      */
     public function register(): void
     {
-        $this->registerProviders();
+        $this
+            ->registerProviders()
+            ->registerCommands();
     }
 
     /**
@@ -36,6 +42,18 @@ abstract class MainServiceProvider extends LaravelServiceProvider
         foreach ($this->serviceProviders as $provider) {
             $this->app->register($provider);
         }
+
+        return $this;
+    }
+
+    /**
+     * Register provider.
+     *
+     * @return $this
+     */
+    public function registerCommands(): self
+    {
+        $this->commands($this->commands);
 
         return $this;
     }

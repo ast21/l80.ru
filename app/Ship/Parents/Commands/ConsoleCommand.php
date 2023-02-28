@@ -2,7 +2,9 @@
 
 namespace App\Ship\Parents\Commands;
 
-abstract class ConsoleCommand
+use Illuminate\Console\Command;
+
+abstract class ConsoleCommand extends Command
 {
 
 }
