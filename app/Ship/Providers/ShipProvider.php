@@ -14,6 +14,10 @@ class ShipProvider extends ParentMainServiceProvider
         MakeInterfaceCommand::class,
     ];
 
+    public array $serviceProviders = [
+        PlatformProvider::class,
+    ];
+
     /**
      * Bootstrap any application services.
      */
