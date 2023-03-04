@@ -4,7 +4,7 @@ namespace App\Ship\Providers;
 
 use App\Ship\Commands\HelloWorldCommand;
 use App\Ship\Commands\MakeInterfaceCommand;
-use App\Ship\Parents\Providers\MainServiceProvider as ParentMainServiceProvider;
+use App\Ship\Parents\Providers\ParentMainServiceProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 
 class ShipProvider extends ParentMainServiceProvider
@@ -15,7 +15,10 @@ class ShipProvider extends ParentMainServiceProvider
     ];
 
     public array $serviceProviders = [
-        PlatformProvider::class,
+        AuthServiceProvider::class,
+        EventServiceProvider::class,
+        RouteServiceProvider::class,
+        PlatformServiceProvider::class,
     ];
 
     /**

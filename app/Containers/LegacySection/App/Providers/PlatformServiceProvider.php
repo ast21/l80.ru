@@ -4,23 +4,15 @@ declare(strict_types=1);
 
 namespace App\Containers\LegacySection\App\Providers;
 
-use App\Ship\Parents\Providers\PlatformServiceProvider as ParentPlatformProvider;
-use Modules\GenderParty\Models\Vote;
+use App\Ship\Parents\Providers\ParentPlatformServiceProvider;
 use Orchid\Platform\ItemPermission;
 use Orchid\Screen\Actions\Menu;
 
-class PlatformServiceProvider extends ParentPlatformProvider
+class PlatformServiceProvider extends ParentPlatformServiceProvider
 {
     public function registerMainMenu(): array
     {
         return [
-            // Gender Party
-            Menu::make(__(Vote::NAME_PLURAL))
-                ->title('Gender Party')
-                ->icon(Vote::ICON)
-                ->route(Vote::ROUTE_LIST)
-                ->permission(Vote::PERMISSION),
-
             // Gift Finder
             Menu::make(__('Gifts'))
                 ->title('Gift Finder')
