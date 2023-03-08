@@ -2,15 +2,10 @@
 
 namespace App\Ship\Parents\Providers;
 
+use AdminKit\Porto\Abstracts\Providers\BroadcastServiceProvider as AbstractBroadcastServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
-/**
- * Class BroadcastServiceProvider
- *
- * A.K.A. app/Providers/BroadcastServiceProvider.php
- */
-abstract class ParentBroadcastServiceProvider extends LaravelServiceProvider
+abstract class ParentBroadcastServiceProvider extends AbstractBroadcastServiceProvider
 {
     /**
      * Bootstrap any application services.

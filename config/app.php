@@ -190,13 +190,11 @@ return [
          * Module Service Providers...
          */
         Modules\GiftFinder\GiftFinderServiceProvider::class,
-        \App\Containers\GenderPartySection\Voting\Providers\MainServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
         App\Ship\Providers\ShipProvider::class,
-        App\Containers\LegacySection\App\Providers\MainServiceProvider::class,
     ],
 
     /*

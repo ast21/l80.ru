@@ -2,18 +2,11 @@
 
 namespace App\Ship\Providers;
 
-use App\Ship\Commands\HelloWorldCommand;
-use App\Ship\Commands\MakeInterfaceCommand;
 use App\Ship\Parents\Providers\ParentMainServiceProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 
 class ShipProvider extends ParentMainServiceProvider
 {
-    public array $commands = [
-        HelloWorldCommand::class,
-        MakeInterfaceCommand::class,
-    ];
-
     public array $serviceProviders = [
         AuthServiceProvider::class,
         EventServiceProvider::class,
@@ -34,11 +27,6 @@ class ShipProvider extends ParentMainServiceProvider
      */
     public function register(): void
     {
-        /**
-         * require helpers.php file
-         */
-        require_once(__DIR__ . '/../Helpers/helpers.php');
-
         /**
          * Load the ide-helper service provider only in non production environments.
          */

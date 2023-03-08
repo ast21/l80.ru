@@ -2,9 +2,9 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use AdminKit\Porto\Abstracts\Providers\MiddlewareServiceProvider as AbstractMiddlewareServiceProvider;
 
-abstract class ParentMiddlewareServiceProvider extends LaravelServiceProvider
+abstract class ParentMiddlewareServiceProvider extends AbstractMiddlewareServiceProvider
 {
     protected array $middlewares = [];
 

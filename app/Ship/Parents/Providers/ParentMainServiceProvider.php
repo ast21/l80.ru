@@ -2,9 +2,9 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use AdminKit\Porto\Abstracts\Providers\MainServiceProvider as AbstractMainServiceProvider;
 
-abstract class ParentMainServiceProvider extends LaravelServiceProvider
+abstract class ParentMainServiceProvider extends AbstractMainServiceProvider
 {
     public array $serviceProviders = [
         //
@@ -19,7 +19,7 @@ abstract class ParentMainServiceProvider extends LaravelServiceProvider
      */
     public function boot(): void
     {
-        //
+        parent::boot();
     }
 
     /**
@@ -27,34 +27,6 @@ abstract class ParentMainServiceProvider extends LaravelServiceProvider
      */
     public function register(): void
     {
-        $this
-            ->registerProviders()
-            ->registerCommands();
-    }
-
-    /**
-     * Register provider.
-     *
-     * @return $this
-     */
-    public function registerProviders(): self
-    {
-        foreach ($this->serviceProviders as $provider) {
-            $this->app->register($provider);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Register provider.
-     *
-     * @return $this
-     */
-    public function registerCommands(): self
-    {
-        $this->commands($this->commands);
-
-        return $this;
+        parent::register();
     }
 }
