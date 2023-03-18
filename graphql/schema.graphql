@@ -1,0 +1,35 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTimeUtc")
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime
+}
+
+type AdminUser {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime
+    roles: [Role!]! @belongsToMany
+}
+
+type Role {
+    id: ID!
+    name: String!
+    slug: String!
+    users: [AdminUser!]! @belongsToMany(relation: "users")
+}
+
+type Query {
+    user(id: ID! @eq): User @find
+    users: [User!]! @paginate
+    admin_user(id: ID! @eq): AdminUser @find
+    admin_users: [AdminUser!]! @paginate
+    role(id: ID! @eq): Role @find
+    roles: [Role!]! @paginate
+}
