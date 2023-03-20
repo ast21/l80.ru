@@ -2,13 +2,13 @@
 
 namespace App\Ship\Providers;
 
+use App\Ship\Parents\Providers\ParentRouteServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as LaravelRouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
-class RouteServiceProvider extends LaravelRouteServiceProvider
+class RouteServiceProvider extends ParentRouteServiceProvider
 {
     /**
      * The path to the "home" route for your application.
@@ -24,7 +24,7 @@ class RouteServiceProvider extends LaravelRouteServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->configureRateLimiting();
 
