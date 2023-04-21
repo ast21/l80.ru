@@ -6,8 +6,10 @@ application.register("cmd", CmdrController);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('cmd-input').addEventListener('keyup', function () {
-        console.log('cmd-input')
-        document.getElementById('cmd').dataset.cmdCommandValue = this.value;
-    })
+    let cmd = document.getElementById('cmd-input');
+    if (cmd) {
+        cmd.addEventListener('keyup', function () {
+            document.getElementById('cmd').dataset.cmdCommandValue = this.value;
+        })
+    }
 });

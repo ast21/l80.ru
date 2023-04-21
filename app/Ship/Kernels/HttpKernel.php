@@ -43,6 +43,7 @@ class HttpKernel extends LaravelHttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Ship\Middlewares\ForceJsonResponse::class,
+            \App\Ship\Middlewares\SetLocale::class,
         ],
 
         'cmd' => [

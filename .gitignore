@@ -15,6 +15,7 @@ yarn-error.log
 /.vscode
 rr
 .rr.yaml
+.DS_Store
 
 composer.dev.json
 composer.dev.lock
