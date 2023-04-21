@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 use App\Containers\LegacySection\App\Orchid\Screens\Action\ActionEditScreen;
 use App\Containers\LegacySection\App\Orchid\Screens\Action\ActionListScreen;
-use App\Containers\LegacySection\App\Orchid\Screens\Choice\ChoiceEditScreen;
-use App\Containers\LegacySection\App\Orchid\Screens\Choice\ChoiceListScreen;
 use App\Containers\LegacySection\App\Orchid\Screens\FAQ\FAQEditScreen;
 use App\Containers\LegacySection\App\Orchid\Screens\FAQ\FAQListScreen;
 use App\Containers\LegacySection\App\Orchid\Screens\Goal\GoalEditScreen;
@@ -31,12 +29,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::screen('main', MainScreen::class)->name('platform.main');
 Route::screen('interpreter', InterpreterScreen::class)->name('platform.interpreter');
-
-Route::group(['prefix' => 'choices'], function () {
-    Route::screen('/', ChoiceListScreen::class)->name('platform.choices.list');
-    Route::screen('/create', ChoiceEditScreen::class)->name('platform.choices.create');
-    Route::screen('/{choice}/edit', ChoiceEditScreen::class)->name('platform.choices.edit');
-});
 Route::group(['prefix' => 'quotes'], function () {
     Route::screen('/', QuoteListScreen::class)->name('platform.quotes.list');
     Route::screen('/create', QuoteEditScreen::class)->name('platform.quotes.create');

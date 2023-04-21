@@ -2,6 +2,7 @@
 
 namespace App\Ship\Providers;
 
+use AdminKit\Porto\Loaders\PathsLoaderTrait;
 use App\Ship\Parents\Providers\ParentRouteServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ParentRouteServiceProvider
 {
+    use PathsLoaderTrait;
+
     /**
      * The path to the "home" route for your application.
      *
@@ -40,6 +43,10 @@ class RouteServiceProvider extends ParentRouteServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        $this
+            ->initPorto(app_path())
+            ->runRoutesAutoLoader();
     }
 
     /**

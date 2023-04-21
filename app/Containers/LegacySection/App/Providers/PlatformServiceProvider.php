@@ -36,12 +36,6 @@ class PlatformServiceProvider extends ParentPlatformServiceProvider
                 ->permission('platform.gf'),
 
             // l80
-            Menu::make(__('Choices'))
-                ->title('l80')
-                ->icon('layers')
-                ->route('platform.choices.list')
-                ->permission('platform.l80'),
-
             Menu::make(__('Quotes'))
                 ->icon('quote')
                 ->route('platform.quotes.list')

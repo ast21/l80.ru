@@ -1,0 +1,68 @@
+<?php
+
+namespace App\Containers\ChoiceSection\Choice\Models;
+
+use AdminKit\Porto\Abstracts\Models\Model;
+use App\Containers\ChoiceSection\Choice\Data\Factories\ChoiceFactory;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
+
+/**
+ * @property int $id
+ * @property string $title
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
+class Choice extends Model
+{
+    use HasFactory;
+    use AsSource, Attachable, Filterable;
+
+    public const NAME = 'Choice';
+
+    public const NAME_PLURAL = 'Choices';
+
+    public const ICON = 'folder-alt';
+
+    public const ROUTE_LIST = 'platform.choices.list';
+
+    public const ROUTE_EDIT = 'platform.choices.edit';
+
+    public const ROUTE_CREATE = 'platform.choices.create';
+
+    public const PERMISSION_CREATE = 'platform.choices.create';
+
+    public const PERMISSION_READ = 'platform.choices.read';
+
+    public const PERMISSION_UPDATE = 'platform.choices.update';
+
+    public const PERMISSION_DELETE = 'platform.choices.delete';
+
+    protected $fillable = [
+        'title',
+    ];
+
+    protected $allowedFilters = [
+        'id',
+        'title',
+    ];
+
+    protected $allowedSorts = [
+        'id',
+        'title'
+    ];
+
+    protected static function newFactory(): Factory
+    {
+        return ChoiceFactory::new();
+    }
+
+    public function elements()
+    {
+        return $this->hasMany(ChoiceElement::class);
+    }
+}
