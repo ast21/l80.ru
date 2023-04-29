@@ -3,7 +3,6 @@
 namespace App\Containers\ChoiceSection\Choice\UI\Platform\Screens;
 
 use App\Containers\ChoiceSection\Choice\Models\Choice;
-use App\Containers\ChoiceSection\Choice\Models\ChoiceTranslation;
 use App\Containers\ChoiceSection\Choice\UI\Platform\Requests\ChoiceSaveRequest;
 use Illuminate\Http\RedirectResponse;
 use Orchid\Screen\Actions\Button;
@@ -13,6 +12,7 @@ use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class ChoiceEditScreen extends Screen
 {
@@ -63,32 +63,75 @@ class ChoiceEditScreen extends Screen
 
     public function layout(): iterable
     {
+        $left = $right = '';
+        if ($this->item->exists) {
+            $elements = $this->item->elements->toBase();
+            $randoms = two_rand(0, $elements->count() - 1);
+            $left = $elements->get($randoms[0]);
+            $right = $elements->get($randoms[1]);
+        }
+
         return [
             Layout::rows([
                 Input::make('title')
-                    ->title(__('Title'))
                     ->placeholder(__('Enter title...'))
                     ->value($this->item->title),
+            ])->title(__('Title')),
+            Layout::columns([
+                Layout::rows([
+                    Button::make($left->title)
+                        ->method('left')
+                        ->class('btn btn-success d-block w-100')
+                        ->parameters(['element_id' => $left->id]),
+                ]),
+                Layout::rows([
+                    Button::make($right->title)
+                        ->method('right')
+                        ->parameters(['element_id' => $right->id])
+                        ->class('btn btn-info d-block w-100')
+                        ->style('width: 100%; text-align: center;')
+                ]),
+            ]),
+            Layout::rows([
                 Matrix::make('elements')
-                    ->title(__('Elements'))
                     ->columns([
-                        'ID' => 'id',
+                        __('ID') => 'id',
                         __('Title') => 'title',
+                        __('Rating') => 'rating',
+                        __('Choice') => 'choice_id',
                     ])
                     ->fields([
                         'id' => Input::make()->readonly(),
                         'title' => Input::make(),
+                        'choice_id' => Input::make()->readonly(),
+                        'rating' => Input::make()->readonly(),
                     ])
-                    ->value($this->item->elements),
-            ]),
+                    ->value(
+                        $this->item->elements
+                            ->sortBy([
+                                ['rating', 'desc'],
+                                ['title', 'asc'],
+                            ])
+                            ->values(),
+                    ),
+            ])->title(__('Elements')),
         ];
     }
 
     public function save(Choice $item, ChoiceSaveRequest $request): RedirectResponse
     {
         $item->fill(request()->only('title'))->save();
-        $item->elements()->delete();
-        $item->elements()->createMany($request->get('elements'));
+
+        $requestElements = collect($request->get('elements'));
+
+        // update exists elements
+        $updateElements = $requestElements->filter(fn($element) => $element['id'] !== null)->toArray();
+        $item->elements()->upsert($updateElements, 'id');
+
+        // create new elements
+        $createElements = $requestElements->filter(fn($element) => $element['id'] === null)->toArray();
+        $item->elements()->createMany($createElements);
+
         Alert::info(__('You have successfully saved') . ' ' . __(Choice::NAME));
 
         return redirect()->route(Choice::ROUTE_LIST);
@@ -100,5 +143,23 @@ class ChoiceEditScreen extends Screen
         Alert::info(__('You have successfully deleted') . ' ' . __(Choice::NAME));
 
         return redirect()->route(Choice::ROUTE_LIST);
+    }
+
+    public function left(Choice $item): void
+    {
+        $elementId = request()->get('element_id');
+        $element = $item->elements()->findOrFail($elementId);
+        $element->increment('rating');
+
+        Toast::success($element->title . ' +1');
+    }
+
+    public function right(Choice $item): void
+    {
+        $elementId = request()->get('element_id');
+        $element = $item->elements()->findOrFail($elementId);
+        $element->increment('rating');
+
+        Toast::success($element->title . ' +1');
     }
 }

@@ -19,7 +19,10 @@ class FAQListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'faqs' => FAQ::defaultOrder()->paginate(),
+            /** @phpstan-ignore-next-line */
+            'faqs' => FAQ::query()
+                ->defaultOrder()
+                ->paginate(),
         ];
     }
 

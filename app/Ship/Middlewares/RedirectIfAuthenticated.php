@@ -2,7 +2,7 @@
 
 namespace App\Ship\Middlewares;
 
-use App\Containers\LegacySection\App\Providers\RouteServiceProvider;
+use App\Ship\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

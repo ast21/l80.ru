@@ -49,8 +49,8 @@ class InterpreterScreen extends Screen
             Layout::rows([
                 Interpreter::make('interpreter')
                     ->title('PHP interpreter')
-                    ->style('max-width: 100%;')
-                    ->rows(10),
+                    ->rows(10)
+                    ->style('max-width: 100%;'),
             ]),
         ];
     }

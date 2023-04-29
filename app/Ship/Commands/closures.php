@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 Artisan::command('inspire', function () {
+    /** @phpstan-ignore-next-line */
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 Artisan::command('s', function () {
+    /** @phpstan-ignore-next-line */
     $this->call('octane:start', [
         '--port' => '7007',
         '--workers' => 2,

@@ -7,6 +7,7 @@ use App\Containers\ChoiceSection\Choice\Data\Factories\ChoiceFactory;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
@@ -61,7 +62,7 @@ class Choice extends Model
         return ChoiceFactory::new();
     }
 
-    public function elements()
+    public function elements(): HasMany
     {
         return $this->hasMany(ChoiceElement::class);
     }

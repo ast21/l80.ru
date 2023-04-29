@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('choice_id');
             $table->string('title');
+            $table->unsignedBigInteger('rating')->default(0);
+            $table->jsonb('history')->default('[]');
             $table->timestamps();
 
             $table->foreign('choice_id')

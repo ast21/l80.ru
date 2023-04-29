@@ -18,3 +18,19 @@ if (!function_exists('stub_path')) {
         return app()->basePath("app/Ship/Generators/CustomStubs/$path");
     }
 }
+
+if (!function_exists('two_rand')) {
+    /**
+     * @param $min
+     * @param $max
+     * @return int[]
+     */
+    function two_rand($min, $max): array
+    {
+        $random1 = mt_rand($min, $max);
+        while (($random2 = mt_rand($min, $max)) == $random1) {
+        }
+
+        return [$random1, $random2];
+    }
+}
