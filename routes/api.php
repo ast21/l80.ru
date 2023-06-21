@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,8 +10,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::post(
-    '/interpreter/exec',
-    [\App\Containers\LegacySection\App\Http\Controllers\InterpreterController::class, 'exec']
-);

@@ -1,4 +1,4 @@
-FROM composer:2.3.7 as vendor_installer
+FROM composer:2.5.5 as vendor_installer
 
 WORKDIR /app
 COPY database/ database/
@@ -12,10 +12,10 @@ RUN composer install \
     --optimize-autoloader \
     --no-dev
 
-FROM breakhack/roadrunner:2.9.1-alpine3.15
+FROM breakhack/php-cli:8.2
 COPY --from=vendor_installer /app/vendor/ /var/www/html/vendor/
 COPY php.ini-production /usr/local/etc/php/php.ini
 COPY --chown=1000:1000 . .
 RUN php artisan storage:link
 
-CMD php artisan migrate --force && php artisan octane:start --host=0.0.0.0 --port=8000
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000

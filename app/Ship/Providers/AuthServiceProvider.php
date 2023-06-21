@@ -2,9 +2,9 @@
 
 namespace App\Ship\Providers;
 
-use App\Ship\Parents\Providers\ParentAuthServiceProvider;
+use App\Ship\Abstracts\Providers\AbstractAuthServiceProvider;
 
-class AuthServiceProvider extends ParentAuthServiceProvider
+class AuthServiceProvider extends AbstractAuthServiceProvider
 {
     /**
      * The model to policy mappings for the application.

@@ -187,11 +187,6 @@ return [
          */
 
         /*
-         * Module Service Providers...
-         */
-        Modules\GiftFinder\GiftFinderServiceProvider::class,
-
-        /*
          * Application Service Providers...
          */
         App\Ship\Providers\ShipProvider::class,

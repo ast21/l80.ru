@@ -19,6 +19,9 @@ rr
 
 composer.dev.json
 composer.dev.lock
+composer.local.json
+composer.local.lock
+composer-packages
 
 _ide_helper*.php
 .phpstorm.meta.php

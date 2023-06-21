@@ -3,13 +3,13 @@
 namespace App\Ship\Providers;
 
 use AdminKit\Porto\Loaders\PathsLoaderTrait;
-use App\Ship\Parents\Providers\ParentRouteServiceProvider;
+use App\Ship\Abstracts\Providers\AbstractRouteServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
-class RouteServiceProvider extends ParentRouteServiceProvider
+class RouteServiceProvider extends AbstractRouteServiceProvider
 {
     use PathsLoaderTrait;
 
@@ -44,9 +44,7 @@ class RouteServiceProvider extends ParentRouteServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
-        $this
-            ->initPorto(app_path())
-            ->runRoutesAutoLoader();
+        $this->runRoutesAutoLoader();
     }
 
     /**

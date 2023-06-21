@@ -2,7 +2,7 @@
 
 namespace App\Ship\Commands;
 
-use App\Ship\Parents\Commands\ConsoleCommand;
+use App\Ship\Abstracts\Commands\ConsoleCommand;
 
 class HelloWorldCommand extends ConsoleCommand
 {
