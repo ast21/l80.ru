@@ -1,30 +1,15 @@
 <?php
 
+use AdminKit\Core\Containers\UserSection;
+
 // config for AdminKit/Core
 return [
-    'locales' => ['ru', 'en'],
+    'locales' => ['ru', 'en', 'kk'],
 
-    'packages' => [
-        'directories' => [
-            // https://github.com/admin-kit/directories/blob/1.x/config/directories.php
-            'models' => [
-                [
-                    'name' => 'Gender',
-                    'title' => 'Gender',
-                ],
-            ],
-            'properties' => [
-                [
-                    'key' => 'color',
-                    'title' => 'Color',
-                    'required' => false,
-                ],
-                [
-                    'key' => 'code',
-                    'title' => 'Code',
-                    'required' => false,
-                ],
-            ],
-        ],
+    'containers' => [
+        \App\Containers\User\Providers\MainServiceProvider::class,
+        \App\Containers\AdminUser\Providers\MainServiceProvider::class,
+
+        UserSection\User\Providers\MainServiceProvider::class,
     ],
 ];
