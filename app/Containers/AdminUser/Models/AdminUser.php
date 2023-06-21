@@ -3,8 +3,9 @@
 namespace App\Containers\AdminUser\Models;
 
 use AdminKit\Core\Containers\UserSection\User\Models\AdminUser as Authenticatable;
+use Filament\Models\Contracts\FilamentUser;
 
-class AdminUser extends Authenticatable
+class AdminUser extends Authenticatable implements FilamentUser
 {
     /**
      * The attributes that are mass assignable.
@@ -38,4 +39,9 @@ class AdminUser extends Authenticatable
         'permissions' => 'array',
         'email_verified_at' => 'datetime',
     ];
+
+    public function canAccessFilament(): bool
+    {
+        return true;
+    }
 }
