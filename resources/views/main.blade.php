@@ -1,12 +1,12 @@
-<div class="bg-white rounded-top shadow-sm mb-3">
-
-    <div class="row g-0">
-        <div class="col mt-6 p-4">
-
-            <h2 class="mt-2 text-dark fw-light">
-                {{ $quote?->content }}
-            </h2>
-        </div>
-    </div>
-</div>
-
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @vite('resources/css/app.css')
+</head>
+<body>
+<h1 class="text-3xl font-bold underline">Hello world!</h1>
+</body>
+@vite('resources/js/app.js')
+</html>
