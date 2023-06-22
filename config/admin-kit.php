@@ -11,5 +11,7 @@ return [
         \App\Containers\AdminUser\Providers\MainServiceProvider::class,
 
         UserSection\User\Providers\MainServiceProvider::class,
+
+        \App\Containers\PSG\Providers\MainServiceProvider::class,
     ],
 ];
