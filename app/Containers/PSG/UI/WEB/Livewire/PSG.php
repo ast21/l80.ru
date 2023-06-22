@@ -11,7 +11,7 @@ class PSG extends Component
 
     public function render(): View
     {
-        return view('container@PSG::livewire.name');
+        return view('container@PSG::livewire.psg');
     }
 
     public function increment(): void
