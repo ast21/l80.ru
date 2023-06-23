@@ -12,8 +12,17 @@ RUN composer install \
     --optimize-autoloader \
     --no-dev
 
+FROM node:lts-alpine as asset_builder
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn
+COPY /resources ./resources
+COPY postcss.config.js tailwind.config.js vite.config.js ./
+RUN yarn build
+
 FROM breakhack/roadrunner:2.9.1-alpine3.15
 COPY --from=vendor_installer /app/vendor/ /var/www/html/vendor/
+COPY --from=asset_builder /app/public/build /var/www/html/public/build
 COPY php.ini-production /usr/local/etc/php/php.ini
 COPY --chown=1000:1000 . .
 RUN php artisan storage:link
