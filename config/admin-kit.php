@@ -52,6 +52,7 @@ return [
         'resources' => [
             UserResource::class,
             RoleResource::class,
+            \App\Containers\Achievement\UI\Filament\Resources\AchievementResource::class,
         ],
         'pages' => [
             Filament\Pages\Dashboard::class,

@@ -2,8 +2,9 @@
 
 namespace App\Ship\Providers;
 
-use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
+use App\Containers\Achievement\Providers\MainServiceProvider as AchievementServiceProvider;
 use App\Containers\TestLanding\Providers\MainServiceProvider as TestLandingServiceProvider;
+use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
 
 class ShipProvider extends AbstractMainServiceProvider
 {
@@ -15,5 +16,6 @@ class ShipProvider extends AbstractMainServiceProvider
 
         // Containers
         TestLandingServiceProvider::class,
+        AchievementServiceProvider::class,
     ];
 }
