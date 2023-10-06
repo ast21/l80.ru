@@ -1,4 +1,4 @@
-FROM composer:2.5.5 as vendor_installer
+FROM composer:2.6.5 as vendor_installer
 
 WORKDIR /app
 COPY database/ database/
@@ -16,6 +16,7 @@ FROM node:lts-alpine as asset_builder
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn
+COPY /app ./app
 COPY /resources ./resources
 COPY postcss.config.js tailwind.config.js vite.config.js ./
 RUN yarn build
