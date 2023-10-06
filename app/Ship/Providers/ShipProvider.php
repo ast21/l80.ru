@@ -3,6 +3,7 @@
 namespace App\Ship\Providers;
 
 use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
+use App\Containers\TestLanding\Providers\MainServiceProvider as TestLandingServiceProvider;
 
 class ShipProvider extends AbstractMainServiceProvider
 {
@@ -13,5 +14,6 @@ class ShipProvider extends AbstractMainServiceProvider
         ApiDocsServiceProvider::class,
 
         // Containers
+        TestLandingServiceProvider::class,
     ];
 }
