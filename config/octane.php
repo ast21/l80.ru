@@ -178,7 +178,6 @@ return [
     */
 
     'watch' => [
-        'modules',
         'app',
         'bootstrap',
         'config',
