@@ -2,6 +2,8 @@
 
 namespace App\Ship\Abstracts\Factories;
 
-abstract class AbstractFactory
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+abstract class AbstractFactory extends Factory
 {
 }

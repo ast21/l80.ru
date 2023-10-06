@@ -36,10 +36,6 @@ class RouteServiceProvider extends AbstractRouteServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('cmd')
-                ->prefix('cmd')
-                ->group(base_path('routes/cmd.php'));
-
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });

@@ -8,4 +8,8 @@ use AdminKit\Porto\Abstracts\RouteServiceProvider;
 
 class AbstractRouteServiceProvider extends RouteServiceProvider
 {
+    protected function configureRateLimiting()
+    {
+
+    }
 }

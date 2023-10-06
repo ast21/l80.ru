@@ -42,12 +42,10 @@ class HttpKernel extends LaravelHttpKernel
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Ship\Middlewares\ForceJsonResponse::class,
-            \App\Ship\Middlewares\SetLocale::class,
         ],
 
         'cmd' => [
-            \App\Ship\Middlewares\ForceJsonResponse::class,
+            //
         ],
     ];
 
@@ -66,7 +64,7 @@ class HttpKernel extends LaravelHttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Ship\Middlewares\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'signed' => \App\Ship\Middlewares\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];

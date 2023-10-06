@@ -10,5 +10,8 @@ class ShipProvider extends AbstractMainServiceProvider
         AuthServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
+        ApiDocsServiceProvider::class,
+
+        // Containers
     ];
 }

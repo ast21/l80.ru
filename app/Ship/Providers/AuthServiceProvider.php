@@ -3,6 +3,8 @@
 namespace App\Ship\Providers;
 
 use App\Ship\Abstracts\Providers\AbstractAuthServiceProvider;
+use App\Ship\Policies\RolePolicy;
+use Spatie\Permission\Models\Role;
 
 class AuthServiceProvider extends AbstractAuthServiceProvider
 {
@@ -12,17 +14,14 @@ class AuthServiceProvider extends AbstractAuthServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Role::class => RolePolicy::class,
     ];
 
     /**
      * Register any authentication / authorization services.
-     *
-     * @return void
      */
     public function boot(): void
     {
-        $this->registerPolicies();
         //
     }
 }

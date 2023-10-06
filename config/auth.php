@@ -62,12 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \App\Containers\User\Models\User::class,
-        ],
-
-        'admin_users' => [
-            'driver' => 'eloquent',
-            'model' => \App\Containers\AdminUser\Models\AdminUser::class,
+            'model' => \App\Ship\Models\User::class,
         ],
 
         // 'users' => [
