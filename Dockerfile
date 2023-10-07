@@ -21,7 +21,7 @@ COPY /resources ./resources
 COPY postcss.config.js tailwind.config.js vite.config.js ./
 RUN yarn build
 
-FROM breakhack/roadrunner:2.9.1-alpine3.15
+FROM breakhack/roadrunner:2023.3.0-alpine3.18
 COPY --from=vendor_installer /app/vendor/ /var/www/html/vendor/
 COPY --from=asset_builder /app/public/build /var/www/html/public/build
 COPY php.ini-production /usr/local/etc/php/php.ini
