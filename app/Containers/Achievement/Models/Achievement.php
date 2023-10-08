@@ -8,7 +8,11 @@ use App\Ship\Abstracts\Models\AbstractModel;
 class Achievement extends AbstractModel
 {
     protected $fillable = [
-        //
+        'title',
+        'target',
+        'icon_url',
+        'external_url',
+        'order',
     ];
 
     protected static function newFactory(): AchievementFactory
