@@ -8,9 +8,11 @@
 </head>
 <body>
 
-<h1
-  class="text-6xl font-extrabold">
-  Achievements page</h1>
+@foreach($achievements as $achievement)
+  <img src="{{ $achievement->icon_url }}" alt="{{ $achievement->title }}">
+  <h4 class="text-2xl font-extrabold">{{ $achievement->title }}</h4>
+  <p>{{ $achievement->target }}</p>
+@endforeach
 
 </body>
 @vite('resources/js/app.js')
