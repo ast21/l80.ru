@@ -3,6 +3,7 @@
 namespace App\Ship\Providers;
 
 use App\Containers\Achievement\Providers\MainServiceProvider as AchievementServiceProvider;
+use App\Containers\Project\Providers\MainServiceProvider as ProjectServiceProvider;
 use App\Containers\TestLanding\Providers\MainServiceProvider as TestLandingServiceProvider;
 use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
 
@@ -17,5 +18,6 @@ class ShipProvider extends AbstractMainServiceProvider
         // Containers
         TestLandingServiceProvider::class,
         AchievementServiceProvider::class,
+        ProjectServiceProvider::class,
     ];
 }

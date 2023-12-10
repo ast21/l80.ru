@@ -53,6 +53,7 @@ return [
             UserResource::class,
             RoleResource::class,
             \App\Containers\Achievement\UI\Filament\Resources\AchievementResource::class,
+            \App\Containers\Project\UI\Filament\Resources\ProjectResource::class,
         ],
         'pages' => [
             Filament\Pages\Dashboard::class,
@@ -60,6 +61,7 @@ return [
         'widgets' => [
             Filament\Widgets\AccountWidget::class,
             Filament\Widgets\FilamentInfoWidget::class,
+            \App\Containers\Project\UI\Filament\Resources\ProjectResource\Widgets\CreateProjectWidget::class,
         ],
         'plugins' => [
             //
