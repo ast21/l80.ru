@@ -24,7 +24,7 @@ class ExceptionsHandler extends LaravelExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            if (app()->bound('sentry')) {
+            if (app()->bound('sentry') && !app()->environment('local')) {
                 app('sentry')->captureException($e);
             }
         });
