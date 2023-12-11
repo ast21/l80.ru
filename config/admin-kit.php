@@ -64,7 +64,7 @@ return [
             \App\Containers\Project\UI\Filament\Resources\ProjectResource\Widgets\CreateProjectWidget::class,
         ],
         'plugins' => [
-            //
+            \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
         ],
 
         'middleware' => [
