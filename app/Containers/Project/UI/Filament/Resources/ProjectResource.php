@@ -2,11 +2,13 @@
 
 namespace App\Containers\Project\UI\Filament\Resources;
 
+use App\Containers\Project\Enum\ProjectStatus;
 use App\Containers\Project\Models\Project;
 use App\Containers\Project\UI\Filament\Resources\ProjectResource\Pages;
 use App\Ship\Abstracts\Filament\AbstractFilamentResource;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -45,6 +47,11 @@ class ProjectResource extends AbstractFilamentResource
                             '4:3',
                             '1:1',
                         ]),
+                    Select::make('status')
+                        ->label(__('Status'))
+                        ->options(ProjectStatus::class)
+                        ->required()
+                        ->native(false),
                 ])
                     ->columns(1)
                     ->columnSpan(1),
@@ -61,21 +68,24 @@ class ProjectResource extends AbstractFilamentResource
 //                    ->sortable(),
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
                     ->label(__('Image'))
-                    ->conversion('thumb'),
+                    ->conversion('thumb')
+                    ->circular(),
                 Tables\Columns\TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->badge()
+                    ->color(fn($state) => ProjectStatus::from($state)->color()),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                //
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                //
             ]);
     }
 

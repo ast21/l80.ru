@@ -14,6 +14,7 @@ class Project extends AbstractModel implements HasMedia
     protected $fillable = [
         'title',
         'description',
+        'status',
     ];
 
     protected static function booted(): void
