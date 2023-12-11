@@ -16,6 +16,13 @@ class Project extends AbstractModel implements HasMedia
         'description',
     ];
 
+    protected static function booted(): void
+    {
+        static::creating(function ($project) {
+            $project->user_id = auth()->id();
+        });
+    }
+
     public function registerMediaCollections(): void
     {
         $this
