@@ -69,7 +69,9 @@ class ProjectResource extends AbstractFilamentResource
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
                     ->label(__('Image'))
                     ->conversion('thumb')
-                    ->circular(),
+                    ->circular()
+                    ->width(80)
+                    ->height(80),
                 Tables\Columns\TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),
