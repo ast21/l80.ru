@@ -22,6 +22,7 @@ class ListProject extends AbstractListRecords
     {
         return [
             ProjectResource\Widgets\CreateProjectWidget::class,
+            ProjectResource\Widgets\WhichIsBetterWidget::class,
         ];
     }
 

@@ -16,6 +16,7 @@
         "laravel/sanctum": "^v3.3",
         "laravel/tinker": "^2.8",
         "sentry/sentry-laravel": "^3.8",
+        "spatie/laravel-data": "^3.10",
         "spiral/roadrunner": "^v2023.2",
         "spiral/roadrunner-cli": "^2.5.0",
         "spiral/roadrunner-http": "^3.0.1"
