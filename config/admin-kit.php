@@ -54,6 +54,7 @@ return [
             RoleResource::class,
             \App\Containers\Achievement\UI\Filament\Resources\AchievementResource::class,
             \App\Containers\Project\UI\Filament\Resources\ProjectResource::class,
+            \App\Containers\Skill\UI\Filament\Resources\SkillResource::class,
         ],
         'pages' => [
             Filament\Pages\Dashboard::class,

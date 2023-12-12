@@ -2,6 +2,7 @@
 
 namespace App\Containers\Project\Models;
 
+use App\Containers\Skill\Models\Skill;
 use App\Ship\Abstracts\Models\AbstractModel;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -22,6 +23,11 @@ class Project extends AbstractModel implements HasMedia
         static::creating(function ($project) {
             $project->user_id = auth()->id();
         });
+    }
+
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
     }
 
     public function registerMediaCollections(): void

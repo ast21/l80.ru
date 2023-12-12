@@ -92,7 +92,7 @@ class ProjectResource extends AbstractFilamentResource
     public static function getRelations(): array
     {
         return [
-            //
+            ProjectResource\RelationManagers\SkillsRelationManager::class,
         ];
     }
 
