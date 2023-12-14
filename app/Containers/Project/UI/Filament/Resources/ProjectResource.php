@@ -41,12 +41,14 @@ class ProjectResource extends AbstractFilamentResource
                     SpatieMediaLibraryFileUpload::make('image')
                         ->label(__('Image'))
                         ->image()
+                        // image auto conversion
+                        ->imageResizeMode('cover')
+                        ->imageCropAspectRatio('16:9')
+                        ->imageResizeTargetWidth('1280')
+                        ->imageResizeTargetHeight('720')
+                        // image editor
                         ->imageEditor()
-                        ->imageEditorAspectRatios([
-                            '16:9',
-                            '4:3',
-                            '1:1',
-                        ]),
+                        ->imageEditorAspectRatios(['16:9']),
                     Select::make('status')
                         ->label(__('Status'))
                         ->options(ProjectStatus::class)
@@ -69,9 +71,7 @@ class ProjectResource extends AbstractFilamentResource
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
                     ->label(__('Image'))
                     ->conversion('thumb')
-                    ->circular()
-                    ->width(80)
-                    ->height(80),
+                    ->height(63),
                 Tables\Columns\TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),

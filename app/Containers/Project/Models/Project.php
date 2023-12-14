@@ -40,6 +40,6 @@ class Project extends AbstractModel implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
-            ->crop('crop-center', 100, 100);
+            ->crop('crop-center', 112, 63);
     }
 }
