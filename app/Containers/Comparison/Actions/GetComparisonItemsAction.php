@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\WhichIsBetter\Actions;
+namespace App\Containers\Comparison\Actions;
 
-use App\Containers\WhichIsBetter\DTO\ComparisonDto;
-use App\Containers\WhichIsBetter\Models\WhichIsBetter;
+use App\Containers\Comparison\DTO\ComparisonDto;
+use App\Containers\Comparison\Models\Comparison;
 use App\Ship\Abstracts\Actions\AbstractAction;
 
 class GetComparisonItemsAction extends AbstractAction
@@ -22,7 +22,7 @@ class GetComparisonItemsAction extends AbstractAction
                 $comparisonData->add("$element:$datum");
             }
         });
-        $comparedData = WhichIsBetter::where('key', $comparisonDto->key)
+        $comparedData = Comparison::where('key', $comparisonDto->key)
             ->get()
             ->map(fn($row) => "$row->better_id:$row->compared_id");
         $comparisonData = $comparisonData->diff($comparedData);

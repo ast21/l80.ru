@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Containers\WhichIsBetter\Models;
+namespace App\Containers\Comparison\Models;
 
 use App\Ship\Abstracts\Models\AbstractModel;
 
-class WhichIsBetter extends AbstractModel
+class Comparison extends AbstractModel
 {
     protected $fillable = [
         'key',

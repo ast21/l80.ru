@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\WhichIsBetter\Providers;
+namespace App\Containers\Comparison\Providers;
 
 use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
 

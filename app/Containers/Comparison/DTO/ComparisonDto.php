@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Containers\WhichIsBetter\DTO;
+namespace App\Containers\Comparison\DTO;
 
 use Illuminate\Support\Collection;
 use Spatie\LaravelData\Data;

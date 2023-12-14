@@ -126,7 +126,7 @@ class ProjectResource extends AbstractFilamentResource
     {
         return [
             ProjectResource\Widgets\CreateProjectWidget::class,
-            ProjectResource\Widgets\WhichIsBetterWidget::class,
+            ProjectResource\Widgets\ComparisonWidget::class,
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\WhichIsBetter\Database\Migrations;
+namespace App\Containers\Comparison\Database\Migrations;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
