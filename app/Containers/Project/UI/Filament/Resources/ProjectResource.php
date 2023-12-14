@@ -97,12 +97,14 @@ class ProjectResource extends AbstractFilamentResource
             ->actions([
                 Tables\Actions\Action::make('Accept')
                     ->visible(fn(Project $record) => $record->status === ProjectStatus::SomeDay)
+                    ->requiresConfirmation()
                     ->action(function (Project $record) {
                         $record->status = ProjectStatus::Processing;
                         $record->save();
                     }),
                 Tables\Actions\Action::make('Done')
                     ->visible(fn(Project $record) => $record->status === ProjectStatus::Processing)
+                    ->requiresConfirmation()
                     ->action(function (Project $record) {
                         $record->status = ProjectStatus::Done;
                         $record->save();
