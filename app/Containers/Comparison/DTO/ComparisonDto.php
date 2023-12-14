@@ -9,13 +9,8 @@ use Spatie\LaravelData\Data;
 
 class ComparisonDto extends Data
 {
-    public string $key;
     /** @var Collection<int> $data */
     public Collection $data;
     public ?int $left;
     public ?int $right;
-
-    public function __construct()
-    {
-    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Containers\Project\Models;
 
+use App\Containers\Comparison\Traits\HasComparisons;
 use App\Containers\Skill\Models\Skill;
 use App\Ship\Abstracts\Models\AbstractModel;
 use Spatie\MediaLibrary\HasMedia;
@@ -11,6 +12,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Project extends AbstractModel implements HasMedia
 {
     use InteractsWithMedia;
+    use HasComparisons;
 
     protected $fillable = [
         'title',

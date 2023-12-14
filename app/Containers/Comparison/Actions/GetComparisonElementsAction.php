@@ -6,9 +6,10 @@ namespace App\Containers\Comparison\Actions;
 
 use App\Containers\Comparison\DTO\ComparisonDto;
 use App\Containers\Comparison\Models\Comparison;
+use App\Containers\Project\Models\Project;
 use App\Ship\Abstracts\Actions\AbstractAction;
 
-class GetComparisonItemsAction extends AbstractAction
+class GetComparisonElementsAction extends AbstractAction
 {
     public function run(ComparisonDto $comparisonDto): ComparisonDto
     {
@@ -22,9 +23,9 @@ class GetComparisonItemsAction extends AbstractAction
                 $comparisonData->add("$element:$datum");
             }
         });
-        $comparedData = Comparison::where('key', $comparisonDto->key)
+        $comparedData = Comparison::where('comparisonable_type', Project::class)
             ->get()
-            ->map(fn($row) => "$row->better_id:$row->compared_id");
+            ->map(fn($row) => "$row->comparisonable_id:$row->compared_id");
         $comparisonData = $comparisonData->diff($comparedData);
         $comparisonData = $comparisonData->diff(
             $comparedData->map(fn($row) => implode(':', array_reverse(explode(':', $row))))
