@@ -88,14 +88,25 @@ class ProjectResource extends AbstractFilamentResource
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
                     ->alignCenter()
-                    ->color(fn($state) => ProjectStatus::from($state)->color()),
+                    ->color(fn($state) => $state->color()),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
             ->actions([
-                //
+                Tables\Actions\Action::make('Accept')
+                    ->visible(fn(Project $record) => $record->status === ProjectStatus::SomeDay)
+                    ->action(function (Project $record) {
+                        $record->status = ProjectStatus::Processing;
+                        $record->save();
+                    }),
+                Tables\Actions\Action::make('Done')
+                    ->visible(fn(Project $record) => $record->status === ProjectStatus::Processing)
+                    ->action(function (Project $record) {
+                        $record->status = ProjectStatus::Done;
+                        $record->save();
+                    }),
             ])
             ->bulkActions([
                 //

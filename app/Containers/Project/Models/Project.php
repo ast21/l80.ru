@@ -3,6 +3,7 @@
 namespace App\Containers\Project\Models;
 
 use App\Containers\Comparison\Traits\HasComparisons;
+use App\Containers\Project\Enum\ProjectStatus;
 use App\Containers\Skill\Models\Skill;
 use App\Ship\Abstracts\Models\AbstractModel;
 use Spatie\MediaLibrary\HasMedia;
@@ -18,6 +19,10 @@ class Project extends AbstractModel implements HasMedia
         'title',
         'description',
         'status',
+    ];
+
+    protected $casts = [
+        'status' => ProjectStatus::class,
     ];
 
     protected static function booted(): void

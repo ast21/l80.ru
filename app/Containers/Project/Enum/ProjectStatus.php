@@ -29,7 +29,7 @@ enum ProjectStatus: string
     {
         return match ($this->value) {
             'someday' => 'gray',
-            'processing' => 'warning',
+            'processing' => 'info',
             'done' => 'success',
         };
     }
