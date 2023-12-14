@@ -31,6 +31,7 @@ class ComparisonWidget extends Widget
         if ($this->left && $this->right) {
             $this->left->comparisons()->create(['compared_id' => $this->right->id]);
             $this->mount();
+            $this->dispatch('project-compared');
         }
     }
 
@@ -38,6 +39,7 @@ class ComparisonWidget extends Widget
     {
         if ($this->left && $this->right) {
             $this->right->comparisons()->create(['compared_id' => $this->left->id]);
+            $this->dispatch('project-compared');
             $this->mount();
         }
     }

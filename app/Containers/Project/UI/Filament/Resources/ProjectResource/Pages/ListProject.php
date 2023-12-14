@@ -27,6 +27,7 @@ class ListProject extends AbstractListRecords
     }
 
     #[On('project-created')]
+    #[On('project-compared')]
     public function refresh()
     {
     }

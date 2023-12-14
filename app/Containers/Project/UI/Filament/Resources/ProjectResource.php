@@ -14,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProjectResource extends AbstractFilamentResource
 {
@@ -70,13 +71,23 @@ class ProjectResource extends AbstractFilamentResource
 //                    ->sortable(),
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
                     ->label(__('Image'))
+                    ->alignCenter()
                     ->conversion('thumb')
                     ->height(63),
                 Tables\Columns\TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),
+                Tables\Columns\TextColumn::make('comparisons')
+                    ->label(__('Comparisons'))
+                    ->badge()
+                    ->alignCenter()
+                    ->sortable(query: function (Builder $query, string $direction): Builder {
+                        return $query->withCount('comparisons')->orderBy('comparisons_count', $direction);
+                    })
+                    ->getStateUsing(fn(Project $record) => $record->comparisons()->count()),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
+                    ->alignCenter()
                     ->color(fn($state) => ProjectStatus::from($state)->color()),
             ])
             ->defaultSort('id', 'desc')
