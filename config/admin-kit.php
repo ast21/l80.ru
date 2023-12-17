@@ -55,6 +55,8 @@ return [
             \App\Containers\Achievement\UI\Filament\Resources\AchievementResource::class,
             \App\Containers\Project\UI\Filament\Resources\ProjectResource::class,
             \App\Containers\Skill\UI\Filament\Resources\SkillResource::class,
+            \App\Blog\Category\UI\Filament\Resources\CategoryResource::class,
+            \App\Blog\Post\UI\Filament\Resources\PostResource::class,
         ],
         'pages' => [
             Filament\Pages\Dashboard::class,

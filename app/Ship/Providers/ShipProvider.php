@@ -2,6 +2,8 @@
 
 namespace App\Ship\Providers;
 
+use App\Blog\Category\Providers\MainServiceProvider as CategoryServiceProvider;
+use App\Blog\Post\Providers\MainServiceProvider as PostServiceProvider;
 use App\Containers\Achievement\Providers\MainServiceProvider as AchievementServiceProvider;
 use App\Containers\Comparison\Providers\MainServiceProvider as ComparisonServiceProvider;
 use App\Containers\Project\Providers\MainServiceProvider as ProjectServiceProvider;
@@ -23,5 +25,7 @@ class ShipProvider extends AbstractMainServiceProvider
         ProjectServiceProvider::class,
         ComparisonServiceProvider::class,
         SkillServiceProvider::class,
+        CategoryServiceProvider::class,
+        PostServiceProvider::class,
     ];
 }
