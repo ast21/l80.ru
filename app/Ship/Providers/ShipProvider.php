@@ -8,6 +8,7 @@ use App\Containers\Achievement\Providers\MainServiceProvider as AchievementServi
 use App\Containers\Comparison\Providers\MainServiceProvider as ComparisonServiceProvider;
 use App\Containers\Project\Providers\MainServiceProvider as ProjectServiceProvider;
 use App\Containers\Skill\Providers\MainServiceProvider as SkillServiceProvider;
+use App\Containers\Status\Providers\MainServiceProvider as StatusServiceProvider;
 use App\Containers\TestLanding\Providers\MainServiceProvider as TestLandingServiceProvider;
 use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
 
@@ -27,5 +28,6 @@ class ShipProvider extends AbstractMainServiceProvider
         SkillServiceProvider::class,
         CategoryServiceProvider::class,
         PostServiceProvider::class,
+        StatusServiceProvider::class,
     ];
 }
