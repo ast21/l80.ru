@@ -15,6 +15,7 @@ use Filament\Forms\Form;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use RyanChandler\FilamentProgressColumn\ProgressColumn;
 
 class ProjectResource extends AbstractFilamentResource
 {
@@ -74,12 +75,16 @@ class ProjectResource extends AbstractFilamentResource
                 Tables\Columns\TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),
+                ProgressColumn::make('progress')
+                    ->label(__('Progress'))->progress(function (Project $record) {
+                        return $record->skills_count;
+                    }),
                 Tables\Columns\TextColumn::make('comparisons')
                     ->label(__('Comparisons'))
                     ->badge()
                     ->alignCenter()
                     ->sortable(query: function (Builder $query, string $direction): Builder {
-                        return $query->withCount('comparisons')->orderBy('comparisons_count', $direction);
+                        return $query->orderBy('comparisons_count', $direction);
                     })
                     ->getStateUsing(fn(Project $record) => $record->comparisons()->count()),
                 Tables\Columns\TextColumn::make('status')
@@ -152,5 +157,8 @@ class ProjectResource extends AbstractFilamentResource
         ];
     }
 
-
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withCount(['comparisons', 'skills']);
+    }
 }
