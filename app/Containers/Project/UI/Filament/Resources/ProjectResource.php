@@ -75,9 +75,23 @@ class ProjectResource extends AbstractFilamentResource
                 Tables\Columns\TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->badge()
+                    ->alignCenter()
+                    ->color(fn ($state) => $state->color()),
                 ProgressColumn::make('progress')
                     ->label(__('Progress'))->progress(function (Project $record) {
-                        return $record->skills_count;
+                        if ($record->skills_count !== 0) {
+                            $doneCount = $record->skills
+                                ->filter(function ($skill) {
+                                    return ProjectStatus::tryFrom($skill->status_name) === ProjectStatus::Done;
+                                })
+                                ->count();
+
+                            return $doneCount / $record->skills_count * 100;
+                        }
+
+                        return 0;
                     }),
                 Tables\Columns\TextColumn::make('comparisons')
                     ->label(__('Comparisons'))
@@ -86,11 +100,7 @@ class ProjectResource extends AbstractFilamentResource
                     ->sortable(query: function (Builder $query, string $direction): Builder {
                         return $query->orderBy('comparisons_count', $direction);
                     })
-                    ->getStateUsing(fn(Project $record) => $record->comparisons()->count()),
-                Tables\Columns\TextColumn::make('status')
-                    ->badge()
-                    ->alignCenter()
-                    ->color(fn($state) => $state->color()),
+                    ->getStateUsing(fn (Project $record) => $record->comparisons()->count()),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
@@ -99,14 +109,14 @@ class ProjectResource extends AbstractFilamentResource
             ])
             ->actions([
                 Tables\Actions\Action::make('Accept')
-                    ->visible(fn(Project $record) => $record->status === ProjectStatus::SomeDay)
+                    ->visible(fn (Project $record) => $record->status === ProjectStatus::SomeDay)
                     ->requiresConfirmation()
                     ->action(function (Project $record) {
                         $record->status = ProjectStatus::Processing;
                         $record->save();
                     }),
                 Tables\Actions\Action::make('Done')
-                    ->visible(fn(Project $record) => $record->status === ProjectStatus::Processing)
+                    ->visible(fn (Project $record) => $record->status === ProjectStatus::Processing)
                     ->requiresConfirmation()
                     ->action(function (Project $record) {
                         $record->status = ProjectStatus::Done;

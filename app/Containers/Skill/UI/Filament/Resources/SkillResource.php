@@ -73,7 +73,12 @@ class SkillResource extends AbstractFilamentResource
             ])
             ->defaultSort('id', 'desc')
             ->filters([
-                Tables\Filters\SelectFilter::make('project')->relationship('project', 'title'),
+                Tables\Filters\SelectFilter::make('project')
+                    ->label(__('Project'))
+                    ->relationship('project', 'title'),
+                Tables\Filters\SelectFilter::make('status')
+                    ->label(__('Status'))
+                    ->relationship('status', 'name'),
             ])
             ->actions([
                 //
