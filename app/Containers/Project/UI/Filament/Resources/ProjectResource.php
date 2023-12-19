@@ -66,9 +66,6 @@ class ProjectResource extends AbstractFilamentResource
     {
         return $table
             ->columns([
-//                Tables\Columns\TextColumn::make('id')
-//                    ->label(__('ID'))
-//                    ->sortable(),
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
                     ->label(__('Image'))
                     ->alignCenter()
@@ -92,7 +89,8 @@ class ProjectResource extends AbstractFilamentResource
             ])
             ->defaultSort('id', 'desc')
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('status')
+                    ->options(ProjectStatus::toArray()),
             ])
             ->actions([
                 Tables\Actions\Action::make('Accept')
