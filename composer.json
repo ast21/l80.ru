@@ -16,6 +16,7 @@
         "laravel/octane": "^v2.1",
         "laravel/sanctum": "^v3.3",
         "laravel/tinker": "^2.8",
+        "league/flysystem-aws-s3-v3": "^3.22",
         "ryangjchandler/filament-progress-column": "^0.4.1",
         "sentry/sentry-laravel": "^3.8",
         "spatie/laravel-data": "^3.10",
