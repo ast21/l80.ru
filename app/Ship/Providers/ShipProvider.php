@@ -6,6 +6,7 @@ use App\Blog\Category\Providers\MainServiceProvider as CategoryServiceProvider;
 use App\Blog\Post\Providers\MainServiceProvider as PostServiceProvider;
 use App\Containers\Achievement\Providers\MainServiceProvider as AchievementServiceProvider;
 use App\Containers\Comparison\Providers\MainServiceProvider as ComparisonServiceProvider;
+use App\Containers\Module\Providers\MainServiceProvider as ModuleServiceProvider;
 use App\Containers\Project\Providers\MainServiceProvider as ProjectServiceProvider;
 use App\Containers\Skill\Providers\MainServiceProvider as SkillServiceProvider;
 use App\Containers\Status\Providers\MainServiceProvider as StatusServiceProvider;
@@ -15,6 +16,9 @@ use App\Ship\Abstracts\Providers\AbstractMainServiceProvider;
 class ShipProvider extends AbstractMainServiceProvider
 {
     public array $serviceProviders = [
+        ModuleServiceProvider::class,
+
+        // Providers
         AuthServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
