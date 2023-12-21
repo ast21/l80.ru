@@ -64,7 +64,7 @@ class SkillResource extends AbstractFilamentResource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->label(__('Status'))
-                    ->getStateUsing(fn (Skill $record) => $record->status->name)
+                    ->getStateUsing(fn (Skill $record) => $record->status?->name)
                     ->badge()
                     ->alignCenter()
                     ->color(fn ($state) => SkillStatus::tryFrom($state)?->color()),
