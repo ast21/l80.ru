@@ -13,5 +13,6 @@ enum Domain: string
     public function setUrlConfig(): void
     {
         config()->set('app.url', 'https://'.$this->value);
+        config()->set('app.asset_url', 'https://'.$this->value);
     }
 }
