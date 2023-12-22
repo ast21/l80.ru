@@ -88,7 +88,7 @@ class ProjectResource extends AbstractFilamentResource
                                 })
                                 ->count();
 
-                            return $doneCount / $record->skills_count * 100;
+                            return floor($doneCount / $record->skills_count * 100);
                         }
 
                         return 0;
