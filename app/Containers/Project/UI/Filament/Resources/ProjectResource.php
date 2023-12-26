@@ -81,6 +81,10 @@ class ProjectResource extends AbstractFilamentResource
                     ->color(fn ($state) => $state->color()),
                 ProgressColumn::make('progress')
                     ->label(__('Progress'))->progress(function (Project $record) {
+                        if ($record->status === ProjectStatus::Done) {
+                            return 100;
+                        }
+
                         if ($record->skills_count !== 0) {
                             $doneCount = $record->skills
                                 ->filter(function ($skill) {
