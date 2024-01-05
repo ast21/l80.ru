@@ -1,6 +1,6 @@
 FROM composer:2.6.5 as vendor_installer
 
-WORKDIR /app
+WORKDIR /application
 COPY database/ database/
 COPY artisan composer.json composer.lock ./
 RUN composer install \
@@ -13,29 +13,29 @@ RUN composer install \
     --no-dev
 
 FROM node:lts-alpine as asset_builder
-WORKDIR /app
+WORKDIR /application
 COPY package.json yarn.lock ./
 RUN yarn install
 COPY postcss.config.js tailwind.config.js vite.config.js ./
 COPY /resources ./resources
-COPY /app ./app
+COPY /app ./application
 RUN yarn build
 
 FROM node:lts-alpine as achievement_builder
-WORKDIR /app/app/Containers/Achievement/UI/WEB/Assets
+WORKDIR /application/app/Containers/Achievement/UI/WEB/Assets
 COPY /app/Containers/Achievement/UI/WEB/Assets/package.json /app/Containers/Achievement/UI/WEB/Assets/yarn.lock ./
 RUN yarn install
 COPY /app/Containers/Achievement/UI/WEB/Assets/postcss.config.js  \
     /app/Containers/Achievement/UI/WEB/Assets/tailwind.config.js \
     /app/Containers/Achievement/UI/WEB/Assets/vite.config.js \
     ./
-COPY /app/Containers/Achievement/UI/WEB /app/app/Containers/Achievement/UI/WEB
+COPY /app/Containers/Achievement/UI/WEB /application/app/Containers/Achievement/UI/WEB
 RUN yarn build
 
 FROM breakhack/roadrunner:2023.3.6-alpine3.18
-COPY --from=vendor_installer /app/vendor/ /var/www/html/vendor/
-COPY --from=asset_builder /app/public/build /var/www/html/public/build
-COPY --from=achievement_builder /app/public/build /var/www/html/public/build
+COPY --from=vendor_installer /application/vendor/ /var/www/html/vendor/
+COPY --from=asset_builder /application/public/build /var/www/html/public/build
+COPY --from=achievement_builder /application/public/build /var/www/html/public/build
 COPY php.ini-production /usr/local/etc/php/php.ini
 COPY --chown=1000:1000 . .
 RUN php artisan storage:link
