@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta title="Achievements page">
-  @vite('resources/css/app.css')
+  {{ Vite::useBuildDirectory('build/achievement')->withEntryPoints(['resources/css/app.css']) }}
 </head>
 <body class="bg-[#030a26] text-[#d0d9fb]">
 
@@ -28,5 +28,5 @@
 
 
 </body>
-@vite('resources/js/app.js')
+{{ Vite::useBuildDirectory('build/achievement')->withEntryPoints(['resources/js/app.js']) }}
 </html>
