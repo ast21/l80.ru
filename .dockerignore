@@ -31,3 +31,5 @@ rr
 !/storage/framework/sessions/.gitignore
 !/storage/framework/testing/.gitignore
 !/storage/framework/views/.gitignore
+
+Dockerfile
