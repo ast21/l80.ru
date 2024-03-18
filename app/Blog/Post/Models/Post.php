@@ -3,6 +3,7 @@
 namespace App\Blog\Post\Models;
 
 use App\Blog\Category\Models\Category;
+use App\Blog\Post\Database\Factories\PostFactory;
 use App\Ship\Abstracts\Models\AbstractModel;
 use App\Ship\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,6 +26,7 @@ class Post extends AbstractModel implements HasMedia
         'content',
         'published_at',
         'image',
+        'user_id',
     ];
 
     protected $casts = [
@@ -33,8 +35,10 @@ class Post extends AbstractModel implements HasMedia
 
     protected static function booted(): void
     {
-        static::creating(function ($post) {
-            $post->user_id = auth()->id();
+        static::creating(function (Post $post) {
+            if (! $post->user_id) {
+                $post->user_id = auth()->id();
+            }
         });
     }
 
@@ -55,9 +59,14 @@ class Post extends AbstractModel implements HasMedia
             ->singleFile();
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('thumb')
             ->crop('crop-center', 112, 63);
+    }
+
+    protected static function newFactory()
+    {
+        return PostFactory::new();
     }
 }

@@ -17,5 +17,6 @@ indent_size = 2
 [docker-compose.yml]
 indent_size = 4
 
-[*.blade.php]
+[*.{blade.php,html}]
 indent_size = 2
+max_line_length = off
